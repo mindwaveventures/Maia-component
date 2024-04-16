@@ -1,0 +1,24 @@
+{
+  "name": "react-ui-components-test",
+  "version": "1.0.0",
+  "description": "In this npm package, you will find a comprehensive collection of React UI components.",
+  "main": "./dist/index.js",
+  "module": "./dist/index.mjs",
+  "types": "./dist/index.d.ts",
+  "scripts": {
+    "build": "tsup"
+  },
+  "keywords": [
+    "react-components"
+  ],
+  "author": "mediwave",
+  "license": "MIT",
+  "devDependencies": {
+    "@types/react": "^18.2.79",
+    "react": "^18.2.0",
+    "react-dom": "^18.2.0",
+    "tailwindcss": "^3.4.3",
+    "tsup": "^8.0.2",
+    "typescript": "^5.4.5"
+  }
+}
