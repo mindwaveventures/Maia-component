@@ -1,5 +1,5 @@
 {
-  "name": "react-ui-components-test",
+  "name": "react-ui-components-test2",
   "version": "1.0.0",
   "description": "In this npm package, you will find a comprehensive collection of React UI components.",
   "main": "./dist/index.js",
@@ -14,9 +14,11 @@
   "author": "mediwave",
   "license": "MIT",
   "devDependencies": {
+    "@types/node": "^20.12.7",
     "@types/react": "^18.2.79",
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
+    "react-router-dom": "^6.22.3",
     "tailwindcss": "^3.4.3",
     "tsup": "^8.0.2",
     "typescript": "^5.4.5"

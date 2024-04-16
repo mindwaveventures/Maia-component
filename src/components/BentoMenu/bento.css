@@ -1,0 +1,76 @@
+/*Bento menu*/
+.put-bento-desktop {
+    @apply align-middle;
+  }
+  .bento-desk-wrap {
+    @apply relative;
+  }
+  .bento-icon {
+    @apply block h-6 w-6 cursor-pointer bg-transparent;
+  }
+  .bento-icon > path {
+    @apply fill-current text-neutral lg:text-headerIcon;
+  }
+  .bento-content {
+    @apply absolute top-11 right-0 z-[999] w-[328px] rounded-xl border-outlineColor bg-neutral p-2 text-baseColor shadow;
+    max-width: 328px;
+  }
+  .menu-wrapper {
+    @apply rounded-xl bg-card p-6;
+  }
+  .bento-content ul li {
+    @apply relative !mb-0 min-h-[84px];
+  }
+  .bento-content .bento-blks {
+    @apply flex min-h-[84px] flex-shrink-0 flex-grow-0 flex-col items-center justify-center rounded-xl p-2 text-center text-sm  text-baseColor no-underline hover:bg-primary hover:bg-opacity-5 focus-visible:bg-primary focus-visible:bg-opacity-5;
+  }
+  
+  .bento-blks {
+    @apply grid gap-2;
+  }
+  
+  .bento-blks a {
+    @apply !no-underline;
+  }
+  .bento-content .bento-blks p {
+    @apply m-0  text-sm text-baseColor;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    width: 100px;
+    overflow: hidden;
+  }
+  .bento-content .bento-blks:hover {
+    position: absolute;
+    text-align: center;
+    text-decoration: none;
+    width: 100%;
+  }
+  .bento-content .bento-blks:hover p {
+    width: auto !important;
+    white-space: normal !important;
+  }
+  .bento-row {
+    @apply grid gap-8;
+  }
+  .bento-svg.show {
+    @apply block;
+  }
+  .bento-svg.hide {
+    @apply hidden;
+  }
+  .bento-close {
+    @apply mt-px ml-1 hidden;
+  }
+  .bento-close.show {
+    @apply block;
+  }
+  .bento-close.hide {
+    @apply hidden;
+  }
+  .bento-blks svg {
+    @apply mx-auto w-7 text-primary;
+  }
+  .bento-blks.health-access svg {
+    @apply h-6 w-6;
+  }
+  
