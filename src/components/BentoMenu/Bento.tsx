@@ -3,6 +3,7 @@ import React from "react";
 
 import { Link } from "react-router-dom";
 
+import Button from "../Button/Button";
 import { Tooltip } from "../Tooltip/Tooltip";
 import { MenuItemProps } from "../../types";
 
@@ -10,8 +11,8 @@ interface MenuProps {
   openStatus: boolean;
   openChangeAction: (status: boolean) => void;
   menuItems: MenuItemProps[];
-  closeIcon:  JSX.Element;
-  openIcon:  JSX.Element;
+  closeIcon: JSX.Element;
+  openIcon: JSX.Element;
 }
 
 export const Menu: React.FC<MenuProps> = ({
@@ -42,29 +43,41 @@ export const Menu: React.FC<MenuProps> = ({
       <div className="bento-desk-wrap">
         {openStatus ? (
           <Tooltip content="Bento Close" direction="top">
-            <button
+            <Button
+              btntype="button"
+              customButton={true}
+              btnCatogery="toggle"
+              status={openStatus}
+              showLabel={false}
+              text="close bento"
+              ariaLabel="Close bento menu"
               aria-expanded="true"
-              aria-label="Close bento mannu"
               onClick={toggleBentoMenu}
+              addClass="bento-icon acc-icon"
+              data-tooltip="Bento menu"
             >
               {closeIcon}
-            </button>
+            </Button>
           </Tooltip>
         ) : (
           <Tooltip content="Bento menu" direction="top">
-            <button
-              type="button"
-              aria-label="Open bento menu"
-              aria-haspopup="true"
-              className="bento-icon acc-icon"
-              data-toggle="dropdown"
+            <Button
+              btnId="accessibileMenu"
+              btntype="button"
+              customButton={true}
+              btnCatogery="toggle"
+              status={openStatus}
+              showLabel={false}
+              text="open bento"
+              ariaLabel="Open bento menu"
               aria-expanded="false"
+              aria-haspopup="true"
               onClick={toggleBentoMenu}
+              addClass="bento-icon acc-icon"
               data-tooltip="Bento menu"
-              id="accessibileMenu"
             >
               {openIcon}
-            </button>
+            </Button>
           </Tooltip>
         )}
         {openStatus && (
@@ -78,7 +91,6 @@ export const Menu: React.FC<MenuProps> = ({
                 {menuItems.map((item: MenuItemProps, index: any) => (
                   <MenuItem key={index} item={item} />
                 ))}
-
               </ul>
             </div>
           </div>
