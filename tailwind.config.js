@@ -1,6 +1,5 @@
-/** @type {import('tailwindcss').Config} */
 module.exports = {
-  content: ['./src/**/*.{js,jsx,ts,tsx}', './public/index.html'],
+  content: ['./src/**/*.{js,jsx,ts,tsx}'],
   darkMode: false,
   theme: {
     fill: {
@@ -20,15 +19,26 @@ module.exports = {
       colors: {
         primary: 'rgb(var(--primary) / <alpha-value>)',
         primaryContent: 'rgb(var(--primary-content) / <alpha-value>)',
-        primaryStates: 'rgb(var(--primary-states) / <alpha-value>)',
         secondary: 'rgb(var(--secondary) / <alpha-value>)',
         secondaryContent: 'rgb(var(--secondary-content) / <alpha-value>)',
         accent: 'rgb(var(--accent) / <alpha-value>)',
         accentContent: 'rgb(var(--accent-content) / <alpha-value>)',
+        btnPrimary: 'rgb(var(--button-primary) / <alpha-value>)',
+        btnPrimaryContent: 'rgb(var(--btn-primary-content) / <alpha-value>)',
+        btnPrimaryStates: 'rgb(var(--btn-primary-states) / <alpha-value>)',
+        btnSecondary: 'rgb(var(--button-secondary) / <alpha-value>)',
+        btnSecondaryContent: 'rgb(var(--btn-secondary-content) / <alpha-value>)',
+        btnSecondaryStates: 'rgb(var(--btn-secondary-states) / <alpha-value>)',
+        navbar: 'rgb(var(--navbar) / <alpha-value>)',
+        navbarContent: 'rgb(var(--navbar-content) / <alpha-value>)',
+        header: 'rgb(var(--header) / <alpha-value>)',
+        headerContent: 'rgb(var(--header-content) / <alpha-value>)',
+        headerIcon: 'rgb(var(--header-icon) / <alpha-value>)',
         neutral: 'rgb(var(--neutral) / <alpha-value>)',
         baseColor: 'rgb(var(--baseColor) / <alpha-value>)',
         titleColor: 'rgb(var(--titleColor) / <alpha-value>)',
-        container: 'rgb(var(--container) / <alpha-value>)',
+        card: 'rgb(var(--card) / <alpha-value>)',
+        body: 'rgb(var(--body) / <alpha-value>)',
         outlineColor: 'rgb(var(--outline) / <alpha-value>)',
         info: 'rgb(var(--info) / <alpha-value>)',
         success: 'rgb(var(--success) / <alpha-value>)',
@@ -39,7 +49,6 @@ module.exports = {
 
         mood: {
           verypoorly: 'var(--mood-verypoorly)',
-          verypoor: 'var(--mood-verypoorly)',
           poor: 'var(--mood-poor)',
           alright: 'var(--mood-alright)',
           well: 'var(--mood-well)',
