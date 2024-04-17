@@ -1,0 +1,178 @@
+.loading-wrapper {
+    @apply fixed top-0 left-0 flex  w-full items-center justify-center bg-neutral bg-opacity-90;
+    z-index: 99999999999;
+    min-height: 100%;
+  }
+  
+  .loading-wrapper svg circle:nth-child(1) {
+    @apply text-primary;
+  }
+  .loading-wrapper svg circle:nth-child(2) {
+    @apply text-primary text-opacity-90;
+  }
+  .loading-wrapper svg circle:nth-child(3) {
+    @apply text-primary text-opacity-80;
+  }
+  .loading-wrapper svg circle:nth-child(4) {
+    @apply text-primary text-opacity-70;
+  }
+  .loading-wrapper svg circle:nth-child(5) {
+    @apply text-primary text-opacity-60;
+  }
+  .loading-wrapper svg circle:nth-child(6) {
+    @apply text-primary text-opacity-50;
+  }
+  .loading-wrapper svg circle:nth-child(7) {
+    @apply text-primary text-opacity-40;
+  }
+  .loading-wrapper svg circle:nth-child(8) {
+    @apply text-primary text-opacity-30;
+  }
+  .loading-wrapper svg circle:nth-child(9) {
+    @apply text-primary text-opacity-20;
+  }
+  .loading-wrapper svg circle:nth-child(10) {
+    @apply text-primary text-opacity-10;
+  }
+  
+  /* SVG spinner icon animation */
+  .spinner {
+    -webkit-animation: rotate 2s linear infinite;
+    animation: rotate 2s linear infinite;
+    z-index: 2;
+    position: absolute;
+  }
+  .spinner .path {
+    stroke: currentColor;
+    stroke-linecap: round;
+    -webkit-animation: dash 1.5s ease-in-out infinite;
+    animation: dash 1.5s ease-in-out infinite;
+  }
+  
+  /* SVG spinner icon animation */
+  .btnSpinner {
+    -webkit-animation: rotate 2s linear infinite;
+    animation: rotate 2s linear infinite;
+    z-index: 2;
+  }
+  .btnSpinner .path {
+    stroke: currentColor;
+    stroke-linecap: round;
+    -webkit-animation: dash 1.5s ease-in-out infinite;
+    animation: dash 1.5s ease-in-out infinite;
+  }
+  
+  @-webkit-keyframes rotate {
+    100% {
+      -webkit-transform: rotate(360deg);
+      transform: rotate(360deg);
+    }
+  }
+  
+  @keyframes rotate {
+    100% {
+      -webkit-transform: rotate(360deg);
+      transform: rotate(360deg);
+    }
+  }
+  @-webkit-keyframes dash {
+    0% {
+      stroke-dasharray: 1, 150;
+      stroke-dashoffset: 0;
+    }
+    50% {
+      stroke-dasharray: 90, 150;
+      stroke-dashoffset: -35;
+    }
+    100% {
+      stroke-dasharray: 90, 150;
+      stroke-dashoffset: -124;
+    }
+  }
+  @keyframes dash {
+    0% {
+      stroke-dasharray: 1, 150;
+      stroke-dashoffset: 0;
+    }
+    50% {
+      stroke-dasharray: 90, 150;
+      stroke-dashoffset: -35;
+    }
+    100% {
+      stroke-dasharray: 90, 150;
+      stroke-dashoffset: -124;
+    }
+  }
+  
+  /* Text loading  */
+  .method-1 {
+    @apply relative inline-block text-9xl text-card;
+  }
+  .method-1:before {
+    content: attr(data-text);
+    animation: fill-1 2s infinite;
+    @apply absolute w-0 overflow-hidden whitespace-nowrap text-primary;
+  }
+  
+  @keyframes fill-1 {
+    50% {
+      width: 100%;
+    }
+    100% {
+      width: 0%;
+    }
+  }
+  
+  /* End */
+  
+  .loading-container {
+    @apply absolute left-0 right-0 bottom-0 top-0 z-50 flex h-full w-full items-center justify-center bg-primary bg-opacity-10;
+  }
+  
+  .svg-spinner {
+    -webkit-transition-property: -webkit-transform;
+    -webkit-transition-duration: 1.2s;
+    -webkit-animation-name: rotate;
+    -webkit-animation-iteration-count: infinite;
+    -webkit-animation-timing-function: linear;
+  
+    -moz-transition-property: -moz-transform;
+    -moz-animation-name: rotate;
+    -moz-animation-duration: 1.2s;
+    -moz-animation-iteration-count: infinite;
+    -moz-animation-timing-function: linear;
+  
+    transition-property: transform;
+    animation-name: rotate;
+    animation-duration: 1.2s;
+    animation-iteration-count: infinite;
+    animation-timing-function: linear;
+  }
+  
+  @-webkit-keyframes rotate {
+    from {
+      -webkit-transform: rotate(0deg);
+    }
+    to {
+      -webkit-transform: rotate(360deg);
+    }
+  }
+  
+  @-moz-keyframes rotate {
+    from {
+      -moz-transform: rotate(0deg);
+    }
+    to {
+      -moz-transform: rotate(360deg);
+    }
+  }
+  
+  @keyframes rotate {
+    from {
+      transform: rotate(0deg);
+    }
+    to {
+      transform: rotate(360deg);
+    }
+  }
+  
