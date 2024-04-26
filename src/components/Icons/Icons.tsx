@@ -1,7 +1,5 @@
 import React from "react";
 
-import LockOpenIcon from "@mui/icons-material/LockOpen";
-
 import DashboardIcon from "../../assets/svgs/BentoDashboard";
 import BentoOpenIcon from "../../assets/svgs/BentoOpen";
 import BentoCloseIcon from "../../assets/svgs/BentoClose";
@@ -12,6 +10,7 @@ import BentoNotificationIcon from "../../assets/svgs/BentoNotification";
 import userManagementIcon from "../../assets/svgs/BentoUserManagement";
 import ThemeIcon from "../../assets/svgs/BentoTheme";
 import ResourceHubIcon from "../../assets/svgs/BentoResource";
+import LockOpenIcon from "../../assets/svgs/BentoLockOpen";
 
 type IconComponentProps = { name: string; addClass?: string };
 type IconTypes = { [name: string]: any };
