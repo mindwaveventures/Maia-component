@@ -1,53 +1,49 @@
 import "../BentoMenu/bento.css";
-import React from "react";
+import React, { useState } from "react";
 
 import { Link } from "react-router-dom";
 
 import Button from "../Button/Button";
 import { Tooltip } from "../Tooltip/Tooltip";
 import { MenuItemProps } from "../../types";
+import IconComponent from "../Icons/Icons";
 
 interface MenuProps {
-  openStatus: boolean;
-  openChangeAction: (status: boolean) => void;
-  menuItems: MenuItemProps[];
-  closeIcon: JSX.Element;
-  openIcon: JSX.Element;
+  menuItems:MenuItemProps[]
 }
 
-export const Menu: React.FC<MenuProps> = ({
-  openStatus,
-  openChangeAction,
-  menuItems,
-  closeIcon,
-  openIcon,
-}) => {
+export const Menu: React.FC<MenuProps> = ({menuItems}) => {
+  const [open, setOpen] = useState<boolean>(false);
+
   const toggleBentoMenu = () => {
-    openChangeAction(!openStatus);
+    setOpen(!open);
   };
-  const MenuItem = ({ item }: any) => (
-    <li role="menuitem">
-      <Link
-        to={item.to}
-        onClick={item.action}
-        className="bento-blks"
-        style={{ cursor: "pointer" }}
-      >
-        {item.icon}
-        <p>{item.label}</p>
-      </Link>
-    </li>
-  );
+  const MenuItem = ({ item }: any) => {
+    return (
+      <li role="menuitem">
+        <Link
+          to={item.to}
+          onClick={item.action}
+          className="bento-blks"
+          style={{ cursor: "pointer" }}
+        >
+          <IconComponent name={item.label}/>
+          <p>{item.label}</p>
+        </Link>
+      </li>
+    );
+  };
+
   return (
     <div className="put-bento-desktop">
       <div className="bento-desk-wrap">
-        {openStatus ? (
+        {open ? (
           <Tooltip content="Bento Close" direction="top">
             <Button
               btntype="button"
               customButton={true}
               btnCatogery="toggle"
-              status={openStatus}
+              status={open}
               showLabel={false}
               text="close bento"
               ariaLabel="Close bento menu"
@@ -56,7 +52,7 @@ export const Menu: React.FC<MenuProps> = ({
               addClass="bento-icon acc-icon"
               data-tooltip="Bento menu"
             >
-              {closeIcon}
+            <IconComponent name="closeIcon"/>
             </Button>
           </Tooltip>
         ) : (
@@ -66,7 +62,7 @@ export const Menu: React.FC<MenuProps> = ({
               btntype="button"
               customButton={true}
               btnCatogery="toggle"
-              status={openStatus}
+              status={open}
               showLabel={false}
               text="open bento"
               ariaLabel="Open bento menu"
@@ -76,11 +72,11 @@ export const Menu: React.FC<MenuProps> = ({
               addClass="bento-icon acc-icon"
               data-tooltip="Bento menu"
             >
-              {openIcon}
+             <IconComponent name='openIcon'/>
             </Button>
           </Tooltip>
         )}
-        {openStatus && (
+        {open && (
           <div className="bento-content" id="bento-menu-content">
             <div className="menu-wrapper">
               <ul
