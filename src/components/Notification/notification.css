@@ -1,0 +1,91 @@
+.notification-wrap {
+    @apply align-middle;
+  }
+  
+  .notification {
+    @apply relative;
+  }
+  .card-notify {
+    @apply absolute top-11 -right-14 z-50 grid gap-4 rounded-xl bg-neutral pb-4 shadow;
+    width: 345px;
+  }
+  @media (max-width: 768px) {
+    .card-notify {
+      @apply right-0 top-auto;
+      width: 345px;
+    }
+  }
+  @media (max-width: 576px) {
+    .card-notify {
+      width: 300px;
+    }
+  }
+  @media (max-width: 376px) {
+    .card-notify {
+      width: 280px;
+    }
+  }
+  .notify-head {
+    @apply border-b border-baseColor p-4 text-left font-bold text-primary;
+  }
+  .notify-body {
+    @apply grid grid-cols-1 gap-4 overflow-y-auto px-4 text-left;
+    max-height: 400px;
+  }
+  .notify-body span {
+    @apply font-bold text-baseColor;
+  }
+  .no-notification-text {
+    @apply flex justify-center;
+  }
+  .notify-wrapper {
+    @apply grid grid-cols-1 gap-4 rounded-md border bg-card p-3;
+  }
+  .notify-wrapper .notify-remove {
+    @apply flex justify-end;
+  }
+  .notify-wrapper .notify-remove p {
+    @apply cursor-pointer;
+  }
+  .notify-wrapper .notify-remove p .MuiSvgIcon-root {
+    @apply text-primary;
+  }
+  .notify-card {
+    @apply flex flex-row gap-3;
+  }
+  .notify-card .content-block p {
+    @apply text-sm text-baseColor;
+  }
+  .notify-card .content-block .time {
+    @apply mt-2 text-sm font-semibold text-baseColor;
+  }
+  
+  .icon-bg {
+    @apply flex h-14 w-14 items-center justify-center rounded-md bg-primary bg-opacity-10;
+  }
+  
+  .icon-wrapper {
+    @apply relative flex h-6 w-6 items-center justify-center justify-self-end lg:h-9 lg:w-9;
+  }
+  
+  .icon-block {
+    @apply flex-none;
+  }
+  
+  .content-block {
+    @apply flex-auto;
+  }
+  .noti-txt {
+    @apply cursor-pointer text-center text-xs text-card;
+  }
+  
+  .notify-dot {
+    @apply absolute top-0 right-1 h-3 w-3 rounded-full border border-neutral bg-error bg-opacity-100;
+  }
+  .notify-icon {
+    @apply text-primary;
+  }
+  .notify-icon > path {
+    @apply fill-current text-neutral lg:text-headerIcon;
+  }
+  

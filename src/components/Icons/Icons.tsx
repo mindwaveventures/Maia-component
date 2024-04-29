@@ -11,6 +11,7 @@ import userManagementIcon from "../../assets/svgs/BentoUserManagement";
 import ThemeIcon from "../../assets/svgs/BentoTheme";
 import ResourceHubIcon from "../../assets/svgs/BentoResource";
 import LockOpenIcon from "../../assets/svgs/BentoLockOpen";
+import BellIcon from "../../assets/svgs/NotifyBell";
 
 type IconComponentProps = { name: string; addClass?: string };
 type IconTypes = { [name: string]: any };
@@ -32,6 +33,7 @@ const iconTypes: IconTypes = {
   "Resource hub":ResourceHubIcon,
   openIcon: BentoOpenIcon,
   closeIcon: BentoCloseIcon,
+  notifyBell:BellIcon
 };
 
 const IconComponent = ({ name, addClass, ...props }: IconComponentProps) => {
