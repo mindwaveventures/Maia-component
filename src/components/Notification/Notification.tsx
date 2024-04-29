@@ -14,7 +14,7 @@ interface NotificationProps {
   children: ReactNode;
 }
 
-export const Notification: React.FC<NotificationProps> = ({
+export const NavNotification: React.FC<NotificationProps> = ({
   dropStatus,
   openNotify,
   totalNotifications,

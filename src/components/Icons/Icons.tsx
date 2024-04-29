@@ -39,7 +39,7 @@ const iconTypes: IconTypes = {
 const IconComponent = ({ name, addClass, ...props }: IconComponentProps) => {
   const Icons = iconTypes[name];
   return (
-    <div className={`icon-view ${addClass ? addClass : ""}`}>
+    <div className={`${addClass ? addClass : ""}`}>
       {Icons && <Icons {...props} />}
     </div>
   );
