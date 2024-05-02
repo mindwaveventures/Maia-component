@@ -23,7 +23,7 @@ export const Menu: React.FC<MenuProps> = ({menuItems}) => {
       <li role="menuitem">
         <Link
           to={item.to}
-          onClick={item.action}
+          onClick={item.action ? item.action : toggleBentoMenu}
           className="bento-blks"
           style={{ cursor: "pointer" }}
         >
