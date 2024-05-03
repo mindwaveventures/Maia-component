@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import { Tooltip } from "../Tooltip/Tooltip";
 import Button from "../Button/Button";
 import IconComponent from "../Icons/Icons";
@@ -9,19 +9,22 @@ interface AccountProps {
   proxyUsers: any[];
   userInfo: IUserInfo;
   menuItems: MenuItemProps[];
+  openTab: boolean|null;
+  changeAction:(status: boolean) => void
+
 }
 
 export const Account: React.FC<AccountProps> = ({
   proxyUsers,
   userInfo,
   menuItems,
+  openTab,
+  changeAction
 }) => {
-  const [open, setOpen] = useState<boolean>(false);
 
   const toggleBentoMenu = () => {
-    setOpen(!open);
+    changeAction(!openTab);
   };
-
   const MenuItem = ({ item }: any) => {
     return (
       <li role="menuitem">
@@ -39,7 +42,7 @@ export const Account: React.FC<AccountProps> = ({
 
   return (
     <>
-      {open ? (
+      {openTab ? (
         <Tooltip content="Avatar" direction="bottom">
           <Button
             addClass="dropdown-toggle acc-icon"
@@ -76,7 +79,7 @@ export const Account: React.FC<AccountProps> = ({
           </Button>
         </Tooltip>
       )}
-      {open && (
+      {openTab && (
         <div className="dropdown-menu" id="dropdown-menu">
           <ul>
             <li className="u_name text-lg" translate="no">

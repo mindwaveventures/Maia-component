@@ -25,7 +25,7 @@ export interface ButtonProps {
   ariaLabelledby?: string;
   btnId?: any;
   btnCatogery?: "button" | "toggle" | "accordion";
-  status?: Boolean;
+  status?: boolean;
   ButtonRef?: any;
   btnName?: any;
   btnValue?: any;

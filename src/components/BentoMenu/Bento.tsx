@@ -10,13 +10,14 @@ import IconComponent from "../Icons/Icons";
 
 interface MenuProps {
   menuItems:MenuItemProps[]
+  changeAction:(status: boolean) => void
+  openTab: boolean;
 }
 
-export const Menu: React.FC<MenuProps> = ({menuItems}) => {
-  const [open, setOpen] = useState<boolean>(false);
+export const Menu: React.FC<MenuProps> = ({menuItems,changeAction,openTab}) => {
 
   const toggleBentoMenu = () => {
-    setOpen(!open);
+    changeAction(!openTab);
   };
   const MenuItem = ({ item }: any) => {
     return (
@@ -37,13 +38,13 @@ export const Menu: React.FC<MenuProps> = ({menuItems}) => {
   return (
     <div className="put-bento-desktop">
       <div className="bento-desk-wrap">
-        {open ? (
+        {openTab ? (
           <Tooltip content="Bento Close" direction="top">
             <Button
               btntype="button"
               customButton={true}
               btnCatogery="toggle"
-              status={open}
+              status={openTab}
               showLabel={false}
               text="close bento"
               ariaLabel="Close bento menu"
@@ -62,7 +63,7 @@ export const Menu: React.FC<MenuProps> = ({menuItems}) => {
               btntype="button"
               customButton={true}
               btnCatogery="toggle"
-              status={open}
+              status={openTab}
               showLabel={false}
               text="open bento"
               ariaLabel="Open bento menu"
@@ -76,7 +77,7 @@ export const Menu: React.FC<MenuProps> = ({menuItems}) => {
             </Button>
           </Tooltip>
         )}
-        {open && (
+        {openTab && (
           <div className="bento-content" id="bento-menu-content">
             <div className="menu-wrapper">
               <ul
