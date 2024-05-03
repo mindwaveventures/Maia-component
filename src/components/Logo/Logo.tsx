@@ -4,13 +4,13 @@ import { LogoImg } from './LogoImg';
 import IconComponent from '../Icons/Icons';
 import "./logo.css"
 
-interface TrustLogoProps {
+interface LogoProps {
     title: string;
     imageUrl: string;
     width?:number
 }
 
-export const TrustLogo: React.FC<TrustLogoProps> = ({title, imageUrl,width}) => {
+export const Logo: React.FC<LogoProps> = ({title, imageUrl,width}) => {
     const [loading, setLoading] = useState(true);
 
     useEffect(() => {

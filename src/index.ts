@@ -6,6 +6,7 @@ export * from './components/LoaderSVG/LoaderSVG'
 export * from './types'
 export * from './components/Notification/Notification'
 export * from './components/Account/Account'
+export * from './components/Logo/Logo'
 
 /* Functions */ 
 export * from './functions/VoiceCommandManager'
