@@ -1,7 +1,7 @@
 {
   "name": "react-ui-components-testing",
-  "version": "1.3.6",
-  "description":"In this npm package, you will find a comprehensive collection of React UI components.",
+  "version": "1.6.1",
+  "description": "In this npm package, you will find a comprehensive collection of React UI components.",
   "main": "./dist/index.js",
   "module": "./dist/index.mjs",
   "types": "./dist/index.d.ts",
@@ -18,6 +18,7 @@
     "@types/react": "^18.2.79",
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
+    "react-helmet-async": "^2.0.5",
     "react-router-dom": "^6.22.3",
     "tailwindcss": "^3.4.3",
     "tsup": "^8.0.2",

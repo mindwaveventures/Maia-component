@@ -14,6 +14,8 @@ import LockOpenIcon from "../../assets/svgs/BentoLockOpen";
 import BellIcon from "../../assets/svgs/NotifyBell";
 import ProfileIcon from "../../assets/svgs/Profile";
 import LogoProfileIcon from "../../assets/svgs/LogoProfile";
+import BackArrowIcon from "../../assets/svgs/BackArrow";
+import BrandLogoIcon from "../../assets/svgs/BrandLogo";
 
 type IconComponentProps = { name: string; addClass?: string };
 type IconTypes = { [name: string]: any };
@@ -37,7 +39,9 @@ const iconTypes: IconTypes = {
   closeIcon: BentoCloseIcon,
   notifyBell:BellIcon,
   profileIcon:ProfileIcon,
-  logoProfile:LogoProfileIcon
+  logoProfile:LogoProfileIcon,
+  back:BackArrowIcon,
+  brandLogo:BrandLogoIcon
 };
 
 const IconComponent = ({ name, addClass, ...props }: IconComponentProps) => {

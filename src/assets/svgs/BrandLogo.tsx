@@ -1,0 +1,20 @@
+import React from "react";
+
+const BrandLogoIcon: React.FC = () => (
+  <svg
+    role="img"
+    aria-labelledby="title"
+    className="logoInverse"
+    width="100%"
+    height="28"
+    viewBox="0 0 104 28"
+  >
+    <title>Logo</title>
+    <path
+      d="M0.56 28V-1.90735e-06H3L15.8 21.84H14.52L27.2 -1.90735e-06H29.64V28H26.8V4.44H27.48L15.8 24.44H14.4L2.64 4.44H3.4V28H0.56ZM34.2831 28L47.0831 -1.90735e-06H50.0031L62.8031 28H59.6831L47.9231 1.72H49.1231L37.3631 28H34.2831ZM39.3231 20.52L40.2031 18.12H56.4831L57.3631 20.52H39.3231ZM67.435 28V-1.90735e-06H70.395V28H67.435ZM75.0253 28L87.8253 -1.90735e-06H90.7453L103.545 28H100.425L88.6653 1.72H89.8653L78.1053 28H75.0253ZM80.0653 20.52L80.9453 18.12H97.2253L98.1053 20.52H80.0653Z"
+      fill="currentColor"
+    />
+  </svg>
+);
+
+export default BrandLogoIcon;

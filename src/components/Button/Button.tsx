@@ -1,6 +1,6 @@
 import React, { useRef, useEffect } from "react";
 
-import { voiceCommandManager } from "../../functions/VoiceCommandManager";
+import { voiceCommandManager } from "../../utils/VoiceCommandManager";
 import { LoaderSVG } from "../LoaderSVG/LoaderSVG";
 
 import "./button.css";

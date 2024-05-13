@@ -7,6 +7,7 @@ export * from './types'
 export * from './components/Notification/Notification'
 export * from './components/Account/Account'
 export * from './components/Logo/Logo'
+export * from './components/Header/Header'
 
 /* Functions */ 
-export * from './functions/VoiceCommandManager'
+export * from './utils/VoiceCommandManager'
