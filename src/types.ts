@@ -26,7 +26,7 @@ export type MenuItemProps = {
 
 export interface MenuItem {
   label: string;
-  link: string;
+  link?: string;
   action?: () => void;
   isActive: boolean;
   isHide: boolean;

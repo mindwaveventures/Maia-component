@@ -20,9 +20,9 @@ export const PrimaryNav: React.FC<PrimaryNavProps> = ({ navItems }) => {
         {navItems.map((item, index) => (
           <>
             {!item.isHide && (
-              <li key={index}>
+              <li key={index} onClick={() => item.action?.()}>
                 <Link
-                  to={item.link}
+                  to={item.link || '#'}
                   className={`pri-nav-link ${item.isActive ? 'active' : ''}`}
                 >
                   {item.label}
