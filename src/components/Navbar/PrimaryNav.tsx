@@ -9,7 +9,7 @@ export interface PrimaryNavProps {
   userInfo?: any;
 }
 
-const PrimaryNav: React.FC<PrimaryNavProps> = ({ navItems }) => {
+export const PrimaryNav: React.FC<PrimaryNavProps> = ({ navItems }) => {
   return (
     <nav
       role='navigation'

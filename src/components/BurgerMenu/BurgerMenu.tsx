@@ -93,7 +93,7 @@ const useMenuState = (initialState = null) => {
 };
 
 // Main BurgerMenu component
-const BurgerMenu: React.FC<BurgerMenuProps> = ({
+export const BurgerMenu: React.FC<BurgerMenuProps> = ({
   menuData,
   Name = '',
   id,

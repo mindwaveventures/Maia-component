@@ -11,7 +11,7 @@ export interface RecordStatusProps {
   btn_function?: (e: any) => void;
 }
 
-const RecordStatus: React.FC<RecordStatusProps> = ({
+export const RecordStatus: React.FC<RecordStatusProps> = ({
   label,
   hide,
   button,
