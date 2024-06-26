@@ -1,0 +1,22 @@
+.record-status {
+  @apply mx-auto flex w-full flex-col items-center gap-3 rounded-lg bg-btnPrimary/[0.12] p-6 text-center md:flex-row;
+}
+
+.record-status path {
+  @apply inline-block fill-current text-black;
+}
+
+.record-status p {
+  @apply !pb-0 text-black lg:text-left;
+  font-weight: 400;
+}
+/* .rdt_Table {
+  @apply rounded-lg border border-outlineColor !bg-neutral;
+} */
+
+.sticky-last-column {
+  position: sticky;
+  right: 0;
+  z-index: 1;
+  /* You can also set a background color, border, width, and other styles as needed */
+}

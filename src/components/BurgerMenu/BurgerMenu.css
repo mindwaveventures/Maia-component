@@ -1,0 +1,58 @@
+/* burger-menu */
+.burger-menu-section {
+  @apply relative;
+}
+
+.burger-menu-section .bento-icon {
+  @apply h-4 w-4;
+}
+
+.burger-header {
+  @apply mb-0 flex flex-row items-center border-b p-5;
+}
+
+.burger-header button svg path {
+  @apply fill-current text-neutral;
+}
+
+.appname {
+  @apply px-4 py-0 font-bold text-neutral;
+}
+
+.list-group .list-group-item {
+  @apply mx-5 mb-0 flex min-h-[70px] cursor-pointer items-center justify-between py-4 pl-10 pr-5 text-left  font-normal;
+}
+
+.list-group.sub .list-group-item {
+  @apply min-h-[40px] py-1  first:pt-0 last:pb-7;
+}
+
+.list-group.sub .list-group-item a,
+.list-group.sub .list-group-item span,
+.list-group.sub .list-group-item p {
+  @apply !text-opacity-80;
+}
+
+.list-group .list-group .list-group-item,
+.list-group-item p {
+  @apply font-medium;
+}
+/* .list-group .list-group-item p {
+    @apply !font-semibold;
+  } */
+.list-group .list-group .list-group-item a,
+.list-group-item a,
+.list-group-item p {
+  @apply text-neutral no-underline;
+}
+/* .list-group .list-group .list-group-item p {
+    @apply !font-normal;
+  } */
+
+.add-icon span {
+  @apply w-7 text-7xl font-normal text-neutral;
+}
+
+.item-separator {
+  @apply border-b border-solid;
+}

@@ -1,0 +1,60 @@
+/*Dropdown*/
+.dropdown-group {
+  @apply relative;
+}
+.dropdown-group.profile {
+  @apply border-b border-titleColor pb-1;
+}
+.dropdown-toggle {
+  @apply relative m-0 inline-block h-6 w-6 cursor-pointer border-0 bg-transparent py-2 pr-7 text-center font-normal text-baseColor outline-none lg:h-9 lg:w-9;
+}
+.dropdown-toggle::after {
+  @apply absolute right-2 top-4 inline h-0 w-0;
+  margin-left: 0.255em;
+  vertical-align: 0.255em;
+  content: '';
+  border-top: 0.4em solid;
+  border-right: 0.4em solid transparent;
+  border-bottom: 0;
+  border-left: 0.4em solid transparent;
+}
+.dropdown-menu {
+  @apply absolute right-0 top-6 z-10 mt-3 rounded-xl  border border-disabled bg-neutral py-2 text-left shadow;
+  min-width: 150px;
+  max-width: 250px;
+}
+.dropdown-menu.hide {
+  @apply hidden;
+}
+.dropdown-item {
+  @apply m-0 block py-1 pl-4 pr-2 text-baseColor !no-underline;
+  box-sizing: border-box;
+}
+
+.top-nav-block .dropdown-toggle {
+  @apply p-0 text-primaryContent;
+}
+.top-nav-block .dropdown-toggle::after {
+  @apply hidden text-primaryContent;
+}
+.top-nav-block .dropdown-group.profile {
+  @apply flex items-center border-0 border-neutral p-0;
+}
+.top-nav-block .dropdown-group.profile ul {
+  @apply grid gap-2;
+}
+.top-nav-block .dropdown-group.profile li {
+  @apply m-0 hover:bg-primary hover:bg-opacity-5;
+}
+
+.dropdown-group .dropdown-menu {
+  @apply min-w-[200px] max-w-[250px] pt-4 pb-2;
+}
+
+.u_name {
+  @apply border-b border-outlineColor px-4 pb-4 font-bold hover:!bg-transparent;
+}
+
+.profileNav > path {
+  @apply text-neutral lg:text-headerIcon;
+}

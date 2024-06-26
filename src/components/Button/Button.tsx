@@ -1,20 +1,20 @@
-import React, { useRef, useEffect } from "react";
+import React, { useRef, useEffect } from 'react';
 
-import { voiceCommandManager } from "../../utils/VoiceCommandManager";
-import { LoaderSVG } from "../LoaderSVG/LoaderSVG";
+import { voiceCommandManager } from '../../utils/VoiceCommandManager';
+import { LoaderSVG } from '../LoaderSVG/LoaderSVG';
 
-import "./button.css";
+import './button.css';
 
 export interface ButtonProps {
   text?: string;
   addClass?: string;
-  btntype: "submit" | "button";
+  btntype: 'submit' | 'button';
   disabled?: boolean;
   onClick?: any;
   showIcon?: boolean;
   onKeyDown?: any;
   iconPlaceholder?: any;
-  ariaLive?: "polite" | "assertive";
+  ariaLive?: 'polite' | 'assertive';
   ariaexpanded?: boolean;
   showLoading?: boolean;
   children?: any;
@@ -24,9 +24,8 @@ export interface ButtonProps {
   ariaLabel?: string;
   ariaLabelledby?: string;
   btnId?: any;
-  btnCatogery?: "button" | "toggle" | "accordion";
+  btnCatogery?: 'button' | 'toggle' | 'accordion';
   status?: boolean;
-  ButtonRef?: any;
   btnName?: any;
   btnValue?: any;
   btnTitle?: any;
@@ -52,27 +51,27 @@ const Button = ({
   ariaLabel,
   ariaLabelledby,
   btnId,
-  btnCatogery = "button",
+  btnCatogery = 'button',
   btnName,
   status = false,
   btnValue,
   btnTitle,
   btnStyle,
   btnKey,
-  ButtonRef = useRef<HTMLButtonElement | null>(null),
 }: ButtonProps) => {
+  const ButtonRef = useRef<HTMLButtonElement | null>(null);
   useEffect(() => {
     const commands = [
-      `${btnCatogery === "button" ? "click" : ""} ${
+      `${btnCatogery === 'button' ? 'click' : ''} ${
         navigationValue?.toLowerCase() || text?.toLowerCase()
       }`,
-      `${btnCatogery === "button" ? "submit" : ""} ${
+      `${btnCatogery === 'button' ? 'submit' : ''} ${
         navigationValue?.toLowerCase() || text?.toLowerCase()
       }`,
-      `${status ? "show" : "hide"} ${
+      `${status ? 'show' : 'hide'} ${
         navigationValue?.toLowerCase() || text?.toLowerCase()
       }`,
-      `${status ? "open" : "close"} ${
+      `${status ? 'open' : 'close'} ${
         navigationValue?.toLowerCase() || text?.toLowerCase()
       }`,
     ];
@@ -90,24 +89,24 @@ const Button = ({
   }, [text, status, btnCatogery, navigationValue, voiceCommandManager]);
 
   const handleButtonClick = () => {
-    if (ButtonRef.current && btnCatogery === "button") {
+    if (ButtonRef.current && btnCatogery === 'button') {
       ButtonRef.current.click();
     }
 
-    if (ButtonRef.current && btnCatogery === "toggle" && (!status || status)) {
+    if (ButtonRef.current && btnCatogery === 'toggle' && (!status || status)) {
       ButtonRef.current.click();
     }
   };
 
-  const classNamesArray = [customButton ? "" : "btn", addClass];
+  const classNamesArray = [customButton ? '' : 'btn', addClass];
 
   const classNames = classNamesArray
-    .filter((className) => className !== "")
-    .join(" ");
+    .filter((className) => className !== '')
+    .join(' ');
 
   return (
     <>
-      {btntype === "button" && (
+      {btntype === 'button' && (
         <button
           style={btnStyle}
           ref={ButtonRef}
@@ -123,7 +122,7 @@ const Button = ({
               onClick();
             }
           }}
-          type="button"
+          type='button'
           name={btnName}
           className={classNames}
           onKeyDown={onKeyDown}
@@ -133,7 +132,7 @@ const Button = ({
             navigationValue?.toLowerCase() || text?.toLowerCase()
           }
         >
-          <span className={showLoading ? "pr-4" : "pr-0"}>
+          <span className={showLoading ? 'pr-4' : 'pr-0'}>
             {showLoading && <LoaderSVG />}
           </span>
           {showIcon && iconPlaceholder}
@@ -141,7 +140,7 @@ const Button = ({
           {showLabel && text}
         </button>
       )}
-      {btntype === "submit" && (
+      {btntype === 'submit' && (
         <button
           ref={ButtonRef}
           onClick={() => {
@@ -149,9 +148,9 @@ const Button = ({
               onClick();
             }
           }}
-          type="submit"
+          type='submit'
           className={`${classNames} ${
-            showLoading && "pointer-events-none cursor-not-allowed"
+            showLoading && 'pointer-events-none cursor-not-allowed'
           }`}
           onKeyDown={onKeyDown}
           disabled={disabled}
@@ -160,7 +159,7 @@ const Button = ({
             navigationValue?.toLowerCase() || text?.toLowerCase()
           }
         >
-          <span className={showLoading ? "pr-4" : "pr-0"}>
+          <span className={showLoading ? 'pr-4' : 'pr-0'}>
             {showLoading && <LoaderSVG />}
           </span>
           {showIcon && <span>{iconPlaceholder}</span>}

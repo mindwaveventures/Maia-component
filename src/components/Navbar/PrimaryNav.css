@@ -1,0 +1,19 @@
+.pri-nav-wrap {
+  @apply hidden justify-start overflow-x-auto whitespace-nowrap text-center sm:justify-center sm:whitespace-normal lg:flex;
+  -webkit-overflow-scrolling: touch;
+}
+
+.pri-nav-wrap ul {
+  @apply flex flex-wrap items-center;
+}
+.pri-nav-wrap ul li {
+  @apply m-0;
+}
+
+.pri-nav-link {
+  @apply m-0 whitespace-nowrap px-4 font-header text-baseColor no-underline transition duration-200 ease-in-out hover:text-titleColor;
+}
+
+.pri-nav-link.active {
+  @apply font-bold text-headerIcon;
+}
