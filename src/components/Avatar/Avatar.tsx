@@ -62,7 +62,7 @@ export const Avatar: React.FC<AvatarProps> = ({ title, imageUrl }) => {
         )
       ) : (
         <div className='profile'>
-          <IconComponent name='profileIcon' />
+          <IconComponent name='brandLogo' />
         </div>
       )}
     </div>
