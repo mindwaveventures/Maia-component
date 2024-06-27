@@ -1,59 +1,88 @@
-import React, { useEffect, useState } from 'react';
-import DivLoader from './DivLoader';
-import { LogoImg } from './LogoImg';
-import IconComponent from '../Icons/Icons';
-import './logo.css';
+import React, { useState, useEffect } from 'react';
+import { Link } from 'react-router-dom';
 
-interface LogoProps {
-  title: string;
-  imageUrl: string;
-  width?: number;
+import IconComponent from '../Icons/Icons';
+import { TrustLogo } from '../Avatar/TrustLogo';
+
+export interface LogoProps {
+  title?: string;
+  imageUrl?: string;
+  link?: string;
+  action?: () => void;
+  state?: any;
 }
 
-export const Logo: React.FC<LogoProps> = ({ title, imageUrl, width }) => {
-  const [loading, setLoading] = useState(true);
+export const Logo: React.FC<LogoProps> = ({
+  title,
+  imageUrl,
+  link,
+  action,
+  state,
+}) => {
+  const [svgContent, setSvgContent] = useState('');
+  const [isSvg, setIsSvg] = useState(false);
 
   useEffect(() => {
-    const image = new Image();
-    image.src = imageUrl;
+    const fetchSvg = async () => {
+      if (imageUrl && imageUrl.endsWith('.svg')) {
+        try {
+          const response = await fetch(imageUrl);
+          const svgText = await response.text();
 
-    image.onload = () => {
-      setLoading(false);
+          // validation to check if the response is an SVG
+          const parser = new DOMParser();
+          const doc = parser.parseFromString(svgText, 'image/svg+xml');
+          const isValid = doc.getElementsByTagName('parsererror').length === 0;
+
+          if (isValid) {
+            setIsSvg(true);
+            setSvgContent(svgText);
+          } else {
+            setIsSvg(false);
+          }
+        } catch (error) {
+          console.error('Error fetching SVG:', error);
+          setIsSvg(false);
+        }
+      } else {
+        setIsSvg(false);
+      }
     };
 
-    image.onerror = () => {
-      setLoading(false);
-    };
-
-    return () => {
-      // Cleanup if component unmounts before image load completes
-      image.onload = null;
-      image.onerror = null;
-    };
+    fetchSvg();
   }, [imageUrl]);
+
   return (
-    <span>
-      <div className='logo-wrapper' title={title}>
-        {loading ? (
-          <DivLoader />
-        ) : imageUrl ? (
-          <div className='profile'>
-            <LogoImg
-              src={imageUrl}
-              width={width}
-              alt={title}
-              addClass='object-contain'
+    <div className='logo-wrapper' title={title}>
+      <Link
+        className='logo_helpguide'
+        aria-label='product logo'
+        to={link || '#'}
+        state={state}
+        onClick={action}
+      >
+        {imageUrl ? (
+          isSvg ? (
+            <div
+              className='profile'
+              dangerouslySetInnerHTML={{ __html: svgContent }}
             />
-          </div>
+          ) : (
+            <div className='profile'>
+              <TrustLogo
+                src={imageUrl}
+                width={200}
+                alt={title}
+                addClass='object-contain'
+              />
+            </div>
+          )
         ) : (
-          <DivLoader />
-        )}
-        {!loading && !imageUrl && (
           <div className='profile'>
-            <IconComponent name='logoProfile' />
+            <IconComponent name='brandLogo' />
           </div>
         )}
-      </div>
-    </span>
+      </Link>
+    </div>
   );
 };
