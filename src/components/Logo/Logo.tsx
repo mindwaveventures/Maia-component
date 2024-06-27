@@ -72,7 +72,7 @@ export const Logo: React.FC<LogoProps> = ({
       } else {
         setLoading(false);
       }
-    }, 5000); // Retry after 5 seconds
+    }, 2000);
   };
 
   if (loading) {
