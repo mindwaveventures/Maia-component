@@ -18,6 +18,11 @@ import BackArrowIcon from '../../assets/svgs/BackArrow';
 import BrandLogoIcon from '../../assets/svgs/BrandLogo';
 import { BurgerMenu } from '../../assets/svgs/BurgerMenu';
 import { Info } from '../../assets/svgs/Info';
+import ResourceIcon from '../../assets/svgs/Resource';
+import RollManagementIcon from '../../assets/svgs/RollManagement';
+import ModuleManagementIcon from '../../assets/svgs/ModuleManagement';
+import ServiceManagementIcon from '../../assets/svgs/ServiceManagement';
+import AreaManagementIcon from '../../assets/svgs/AreaManagement';
 
 type IconComponentProps = { name: string; addClass?: string };
 type IconTypes = { [name: string]: any };
@@ -37,6 +42,11 @@ const iconTypes: IconTypes = {
   'Theme management': ThemeIcon,
   'ICB management': DashboardIcon,
   'Resource hub': ResourceHubIcon,
+  'Area management': AreaManagementIcon,
+  'Service Management': ServiceManagementIcon,
+  'Module Management': ModuleManagementIcon,
+  'Roll Management': RollManagementIcon,
+  Resource: ResourceIcon,
   openIcon: BentoOpenIcon,
   closeIcon: BentoCloseIcon,
   notifyBell: BellIcon,
