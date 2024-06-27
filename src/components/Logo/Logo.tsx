@@ -11,6 +11,7 @@ export interface LogoProps {
   link?: string;
   action?: () => void;
   state?: any;
+  isLoading?: boolean;
 }
 
 export const Logo: React.FC<LogoProps> = ({
@@ -19,10 +20,11 @@ export const Logo: React.FC<LogoProps> = ({
   link,
   action,
   state,
+  isLoading = false,
 }) => {
   const [svgContent, setSvgContent] = useState('');
   const [isSvg, setIsSvg] = useState(false);
-  const [loading, setLoading] = useState(true);
+  const [loading, setLoading] = useState(isLoading);
 
   useEffect(() => {
     const fetchSvg = async () => {
@@ -41,14 +43,23 @@ export const Logo: React.FC<LogoProps> = ({
             setSvgContent(svgText);
             setLoading(false);
           } else {
-            retryLoading();
+            setIsSvg(false);
+            if (isLoading) {
+              retryLoading();
+            }
           }
         } catch (error) {
           console.error('Error fetching SVG:', error);
-          retryLoading();
+          setIsSvg(false);
+          if (isLoading) {
+            retryLoading();
+          }
         }
       } else {
-        retryLoading();
+        setIsSvg(false);
+        if (isLoading) {
+          retryLoading();
+        }
       }
     };
 
@@ -62,7 +73,6 @@ export const Logo: React.FC<LogoProps> = ({
           .then((response) => response.blob())
           .then((blob) => {
             if (blob.type.startsWith('image')) {
-              setIsSvg(false);
               setLoading(false);
             } else {
               setLoading(false);
