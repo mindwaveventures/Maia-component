@@ -1,5 +1,5 @@
 import React from 'react';
-import { Link } from 'react-router-dom';
+import { Link, useLocation } from 'react-router-dom';
 
 import { MenuItem } from '../../types';
 import './PrimaryNav.css';
@@ -10,6 +10,7 @@ export interface PrimaryNavProps {
 }
 
 export const PrimaryNav: React.FC<PrimaryNavProps> = ({ navItems }) => {
+  const location = useLocation();
   return (
     <nav
       role='navigation'
@@ -23,7 +24,9 @@ export const PrimaryNav: React.FC<PrimaryNavProps> = ({ navItems }) => {
               <li key={index} onClick={() => item.action?.()}>
                 <Link
                   to={item.link || '#'}
-                  className={`pri-nav-link ${item.isActive ? 'active' : ''}`}
+                  className={`pri-nav-link ${
+                    item.link === location.pathname ? 'active' : ''
+                  }`}
                 >
                   {item.label}
                 </Link>
