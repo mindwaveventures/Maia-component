@@ -3,6 +3,7 @@ import { Link } from 'react-router-dom';
 
 import IconComponent from '../Icons/Icons';
 import { TrustLogo } from '../Avatar/TrustLogo';
+import DivLoader from './DivLoader';
 
 export interface LogoProps {
   title?: string;
@@ -21,6 +22,7 @@ export const Logo: React.FC<LogoProps> = ({
 }) => {
   const [svgContent, setSvgContent] = useState('');
   const [isSvg, setIsSvg] = useState(false);
+  const [loading, setLoading] = useState(true);
 
   useEffect(() => {
     const fetchSvg = async () => {
@@ -37,20 +39,45 @@ export const Logo: React.FC<LogoProps> = ({
           if (isValid) {
             setIsSvg(true);
             setSvgContent(svgText);
+            setLoading(false);
           } else {
-            setIsSvg(false);
+            retryLoading();
           }
         } catch (error) {
           console.error('Error fetching SVG:', error);
-          setIsSvg(false);
+          retryLoading();
         }
       } else {
-        setIsSvg(false);
+        retryLoading();
       }
     };
 
     fetchSvg();
   }, [imageUrl]);
+
+  const retryLoading = () => {
+    setTimeout(() => {
+      if (imageUrl) {
+        fetch(imageUrl)
+          .then((response) => response.blob())
+          .then((blob) => {
+            if (blob.type.startsWith('image')) {
+              setIsSvg(false);
+              setLoading(false);
+            } else {
+              setLoading(false);
+            }
+          })
+          .catch(() => setLoading(false));
+      } else {
+        setLoading(false);
+      }
+    }, 5000); // Retry after 5 seconds
+  };
+
+  if (loading) {
+    return <DivLoader />;
+  }
 
   return (
     <div className='logo-wrapper' title={title}>
