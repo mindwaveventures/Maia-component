@@ -6,9 +6,14 @@ import IconComponent from '../Icons/Icons';
 export interface AvatarProps {
   title: string;
   imageUrl: string;
+  width?: number;
 }
 
-export const Avatar: React.FC<AvatarProps> = ({ title, imageUrl }) => {
+export const Avatar: React.FC<AvatarProps> = ({
+  title,
+  imageUrl,
+  width = 80,
+}) => {
   const [svgContent, setSvgContent] = useState('');
   const [isSvg, setIsSvg] = useState(false);
 
@@ -54,7 +59,7 @@ export const Avatar: React.FC<AvatarProps> = ({ title, imageUrl }) => {
           <div className='profile'>
             <TrustLogo
               src={imageUrl}
-              width={200}
+              width={width}
               alt={title}
               addClass='object-contain'
             />

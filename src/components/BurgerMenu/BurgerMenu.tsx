@@ -3,8 +3,8 @@ import { Link } from 'react-router-dom';
 
 import './BurgerMenu.css';
 import BentoCloseIcon from '../../assets/svgs/BentoClose';
-import { Avatar } from '../Avatar/Avatar';
 import IconComponent from '../Icons/Icons';
+import { Logo } from '../Logo/Logo';
 
 interface MenuItemProps {
   item: IBurgerMenuChildValues;
@@ -135,7 +135,7 @@ export const BurgerMenu: React.FC<BurgerMenuProps> = ({
                   <div className='client-logo flex items-center'>
                     <div className='footer-logo-blk'>
                       <div className='sm-h-5' />
-                      <Avatar title={Name} key={id} imageUrl={LogoUrl} />
+                      <Logo title={Name} key={id} imageUrl={LogoUrl} />
                     </div>
                   </div>
                 </div>
