@@ -1,6 +1,6 @@
 {
   "name": "mv-react-ui-components",
-  "version": "1.0.13",
+  "version": "1.0.15",
   "description": "In this npm package, you will find a comprehensive collection of React UI components.",
   "main": "./dist/index.js",
   "module": "./dist/index.mjs",

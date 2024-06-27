@@ -111,7 +111,7 @@
 }
 
 .nav-group {
-  @apply z-[99999] flex min-h-[52px] w-full items-center justify-between bg-navbar px-4 py-3 lg:relative lg:bg-transparent  lg:py-0 lg:px-10;
+  @apply z-[99999] flex min-h-[70px] w-full items-center justify-between bg-navbar px-4 py-3 lg:relative lg:bg-transparent  lg:py-0 lg:px-10;
 }
 
 .just-w {
