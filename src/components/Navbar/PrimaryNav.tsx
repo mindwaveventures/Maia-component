@@ -7,10 +7,37 @@ import './PrimaryNav.css';
 export interface PrimaryNavProps {
   navItems: MenuItem[];
   userInfo?: any;
+  MainPortal?: string;
+  QBPortal?: string;
+  ResourcesPortal?: string;
+  OuterDomain?: string;
 }
 
-export const PrimaryNav: React.FC<PrimaryNavProps> = ({ navItems }) => {
+const PrimaryNav: React.FC<PrimaryNavProps> = ({
+  navItems,
+  MainPortal = '',
+  QBPortal = '',
+  ResourcesPortal = '',
+  OuterDomain = '',
+}) => {
   const location = useLocation();
+  const getAppUrl = (appUrl: string | undefined, link: string | undefined) => {
+    switch (appUrl) {
+      case 'MainPortal':
+        return `${MainPortal}${link}`;
+      case 'QBPortal':
+        return `${QBPortal}${link}`;
+      case 'ResourcesPortal':
+        return `${ResourcesPortal}${link}`;
+      case 'OuterDomain':
+        return `${OuterDomain}${link}`;
+      case 'Action':
+        return '#';
+      default:
+        return link ? link : '#';
+    }
+  };
+
   return (
     <nav
       role='navigation'
@@ -18,12 +45,12 @@ export const PrimaryNav: React.FC<PrimaryNavProps> = ({ navItems }) => {
       className='pri-nav-wrap merge-bento'
     >
       <ul>
-        {navItems.map((item, index) => (
-          <>
-            {!item.isHide && (
+        {navItems.map(
+          (item, index) =>
+            !item.isHide && (
               <li key={index} onClick={() => item.action?.()}>
                 <Link
-                  to={item.link || '#'}
+                  to={getAppUrl(item.appUrl, item.link) || '#'}
                   className={`pri-nav-link ${
                     item.link === location.pathname ? 'active' : ''
                   }`}
@@ -31,9 +58,8 @@ export const PrimaryNav: React.FC<PrimaryNavProps> = ({ navItems }) => {
                   {item.label}
                 </Link>
               </li>
-            )}
-          </>
-        ))}
+            )
+        )}
       </ul>
     </nav>
   );

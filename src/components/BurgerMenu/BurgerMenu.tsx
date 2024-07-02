@@ -3,17 +3,20 @@ import { Link } from 'react-router-dom';
 
 import './BurgerMenu.css';
 import BentoCloseIcon from '../../assets/svgs/BentoClose';
-import IconComponent from '../Icons/Icons';
 import { Logo } from '../Logo/Logo';
+import IconComponent from '../Icons/Icons';
 
 interface MenuItemProps {
   item: IBurgerMenuChildValues;
   isActive: boolean;
   onClick: (item: IBurgerMenuChildValues) => void;
+  getAppUrl: (appUrl?: string, link?: string) => string;
 }
+
 interface MenuChildrenProps {
   children: IBurgerMenuChildValues[];
   onSelect: (child: IBurgerMenuChildValues) => void;
+  getAppUrl: (appUrl?: string, link?: string) => string;
 }
 
 interface IBurgerMenuChildValues {
@@ -22,6 +25,12 @@ interface IBurgerMenuChildValues {
   children?: IBurgerMenuChildValues[];
   name?: string;
   action?: () => void;
+  appUrl?:
+    | 'MainPortal'
+    | 'QBPortal'
+    | 'ResourcesPortal'
+    | 'OuterDomain'
+    | 'Action';
 }
 
 interface BurgerMenuProps {
@@ -29,9 +38,18 @@ interface BurgerMenuProps {
   Name?: string;
   id?: string;
   LogoUrl?: string;
+  MainPortal?: string;
+  QBPortal?: string;
+  ResourcesPortal?: string;
+  OuterDomain?: string;
 }
 
-const MenuItem: React.FC<MenuItemProps> = ({ item, isActive, onClick }) => {
+const MenuItem: React.FC<MenuItemProps> = ({
+  item,
+  isActive,
+  onClick,
+  getAppUrl,
+}) => {
   const handleMenuClick = () => {
     if (item.action) {
       item.action();
@@ -39,12 +57,13 @@ const MenuItem: React.FC<MenuItemProps> = ({ item, isActive, onClick }) => {
       onClick(item);
     }
   };
+
   return (
     <li
       className={`list-group-item ${isActive ? 'active' : 'item-separator'}`}
       onClick={handleMenuClick}
     >
-      <Link to={item.link || '#'} className=''>
+      <Link to={getAppUrl(item.appUrl, item.link) || '#'} className=''>
         {item.name}
       </Link>
       {item.children && item.children.length > 0 && (
@@ -56,10 +75,10 @@ const MenuItem: React.FC<MenuItemProps> = ({ item, isActive, onClick }) => {
   );
 };
 
-// Subcomponent for children of a menu item
 const MenuChildrenItems: React.FC<MenuChildrenProps> = ({
   children,
   onSelect,
+  getAppUrl,
 }) => (
   <ul className='list-group sub'>
     {children.map((child, idx) => (
@@ -70,7 +89,7 @@ const MenuChildrenItems: React.FC<MenuChildrenProps> = ({
         }`}
       >
         <Link
-          to={child.link || '#'}
+          to={getAppUrl(child.appUrl, child.link) || '#'}
           onClick={() => onSelect(child)}
           className=''
         >
@@ -81,7 +100,6 @@ const MenuChildrenItems: React.FC<MenuChildrenProps> = ({
   </ul>
 );
 
-// Custom hook for managing menu state
 const useMenuState = (initialState = null) => {
   const [selectedMenu, setSelectedMenu] = useState<string | null>(initialState);
 
@@ -92,15 +110,35 @@ const useMenuState = (initialState = null) => {
   return { selectedMenu, toggleMenu };
 };
 
-// Main BurgerMenu component
-export const BurgerMenu: React.FC<BurgerMenuProps> = ({
+const BurgerMenu: React.FC<BurgerMenuProps> = ({
   menuData,
   Name = '',
   id,
   LogoUrl = '',
+  MainPortal = '',
+  QBPortal = '',
+  ResourcesPortal = '',
+  OuterDomain = '',
 }) => {
   const { selectedMenu, toggleMenu } = useMenuState();
   const [mobileToggle, setMobileToggle] = useState<boolean>(false);
+
+  const getAppUrl = (appUrl?: string, link?: string) => {
+    switch (appUrl) {
+      case 'MainPortal':
+        return `${MainPortal}${link}`;
+      case 'QBPortal':
+        return `${QBPortal}${link}`;
+      case 'ResourcesPortal':
+        return `${ResourcesPortal}${link}`;
+      case 'OuterDomain':
+        return `${OuterDomain}${link}`;
+      case 'Action':
+        return '#';
+      default:
+        return link ? link : '#';
+    }
+  };
 
   const toggleBentoMenu = () => {
     setMobileToggle(!mobileToggle);
@@ -149,13 +187,15 @@ export const BurgerMenu: React.FC<BurgerMenuProps> = ({
                             item={item}
                             isActive={isActive}
                             onClick={toggleMenu}
+                            getAppUrl={getAppUrl}
                           />
                           {isActive &&
                             item.children &&
                             item.children.length > 0 && (
                               <MenuChildrenItems
                                 children={item.children}
-                                onSelect={() => {}}
+                                onSelect={toggleMenu}
+                                getAppUrl={getAppUrl}
                               />
                             )}
                         </React.Fragment>

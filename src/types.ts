@@ -22,6 +22,12 @@ export type MenuItemProps = {
   action?: () => void;
   icon?: ReactElement;
   isHide?: boolean;
+  appUrl?:
+    | 'MainPortal'
+    | 'QBPortal'
+    | 'ResourcesPortal'
+    | 'OuterDomain'
+    | 'Action';
 };
 
 export interface MenuItem {
@@ -32,6 +38,12 @@ export interface MenuItem {
   isHide: boolean;
   permissionKey?: any;
   module?: any;
+  appUrl?:
+    | 'MainPortal'
+    | 'QBPortal'
+    | 'ResourcesPortal'
+    | 'OuterDomain'
+    | 'Action';
 }
 
 export interface ITrustInfo {
@@ -104,4 +116,10 @@ export interface IBurgerMenu {
   children?: IBurgerMenu[];
   name?: string;
   action?: () => void;
+  appUrl?:
+    | 'MainPortal'
+    | 'QBPortal'
+    | 'ResourcesPortal'
+    | 'OuterDomain'
+    | 'Action';
 }

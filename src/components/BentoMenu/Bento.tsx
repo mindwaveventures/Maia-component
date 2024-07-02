@@ -12,13 +12,38 @@ interface MenuProps {
   menuItems: MenuItemProps[];
   changeAction: (status: boolean) => void;
   openTab: boolean;
+  MainPortal?: string;
+  QBPortal?: string;
+  ResourcesPortal?: string;
+  OuterDomain?: string;
 }
 
 export const Menu: React.FC<MenuProps> = ({
   menuItems,
   changeAction,
   openTab,
+  MainPortal = '',
+  QBPortal = '',
+  ResourcesPortal = '',
+  OuterDomain = '',
 }) => {
+  const getAppUrl = (appUrl: string | undefined, link: string | undefined) => {
+    switch (appUrl) {
+      case 'MainPortal':
+        return `${MainPortal}${link}`;
+      case 'QBPortal':
+        return `${QBPortal}${link}`;
+      case 'ResourcesPortal':
+        return `${ResourcesPortal}${link}`;
+      case 'OuterDomain':
+        return `${OuterDomain}${link}`;
+      case 'Action':
+        return '#';
+      default:
+        return `${link}`;
+    }
+  };
+
   const toggleBentoMenu = () => {
     changeAction(!openTab);
   };
@@ -28,7 +53,7 @@ export const Menu: React.FC<MenuProps> = ({
         {!item.isHide && (
           <li role='menuitem'>
             <Link
-              to={item.to}
+              to={getAppUrl(item.appUrl, item.to) || '#'}
               onClick={item.action ? item.action : toggleBentoMenu}
               className='bento-blks'
               style={{ cursor: 'pointer' }}
