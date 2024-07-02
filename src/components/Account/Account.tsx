@@ -13,6 +13,10 @@ interface AccountProps {
   menuItems: MenuItemProps[] | any;
   openTab: boolean | null;
   changeAction: (status: boolean) => void;
+  MainPortal?: string;
+  QBPortal?: string;
+  ResourcesPortal?: string;
+  OuterDomain?: string;
 }
 
 export const Account: React.FC<AccountProps> = ({
@@ -21,15 +25,37 @@ export const Account: React.FC<AccountProps> = ({
   menuItems,
   openTab,
   changeAction,
+  MainPortal = '',
+  QBPortal = '',
+  ResourcesPortal = '',
+  OuterDomain = '',
 }) => {
   const toggleBentoMenu = () => {
     changeAction(!openTab);
   };
+
+  const getAppUrl = (appUrl?: string, link?: string) => {
+    switch (appUrl) {
+      case 'MainPortal':
+        return `${MainPortal}${link}`;
+      case 'QBPortal':
+        return `${QBPortal}${link}`;
+      case 'ResourcesPortal':
+        return `${ResourcesPortal}${link}`;
+      case 'OuterDomain':
+        return `${OuterDomain}${link}`;
+      case 'Action':
+        return '#';
+      default:
+        return link ? link : '#';
+    }
+  };
+
   const MenuItem = ({ item }: any) => {
     return (
       <li role='menuitem'>
         <Link
-          to={item.to}
+          to={getAppUrl(item.appUrl, item.to) || '#'}
           onClick={item.action ? item.action : toggleBentoMenu}
           className='dropdown-item'
           style={{ cursor: 'pointer' }}
