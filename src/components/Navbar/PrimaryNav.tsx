@@ -13,7 +13,7 @@ export interface PrimaryNavProps {
   OuterDomain?: string;
 }
 
-const PrimaryNav: React.FC<PrimaryNavProps> = ({
+export const PrimaryNav: React.FC<PrimaryNavProps> = ({
   navItems,
   MainPortal = '',
   QBPortal = '',

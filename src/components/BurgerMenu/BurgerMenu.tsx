@@ -110,7 +110,7 @@ const useMenuState = (initialState = null) => {
   return { selectedMenu, toggleMenu };
 };
 
-const BurgerMenu: React.FC<BurgerMenuProps> = ({
+export const BurgerMenu: React.FC<BurgerMenuProps> = ({
   menuData,
   Name = '',
   id,
