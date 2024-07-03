@@ -74,7 +74,7 @@
 }
 
 .mobile-top-nav-block {
-  @apply bg-card px-0 transition duration-200 ease-in-out max-h-[75px];
+  @apply bg-card px-0 transition duration-200 ease-in-out max-h-[125px];
 }
 
 .back-arrow-block {
