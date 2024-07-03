@@ -34,7 +34,7 @@ export const Account: React.FC<AccountProps> = ({
     changeAction(!openTab);
   };
 
-  const getAppUrl = (appUrl?: string, link?: string) => {
+  const getAppUrl = (appUrl: string, link: string) => {
     switch (appUrl) {
       case 'MainPortal':
         return `${MainPortal}${link}`;

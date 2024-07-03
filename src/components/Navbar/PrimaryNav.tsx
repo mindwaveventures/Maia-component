@@ -21,7 +21,7 @@ export const PrimaryNav: React.FC<PrimaryNavProps> = ({
   OuterDomain = '',
 }) => {
   const location = useLocation();
-  const getAppUrl = (appUrl: string | undefined, link: string | undefined) => {
+  const getAppUrl = (appUrl: string, link: string) => {
     switch (appUrl) {
       case 'MainPortal':
         return `${MainPortal}${link}`;
@@ -46,7 +46,7 @@ export const PrimaryNav: React.FC<PrimaryNavProps> = ({
     >
       <ul>
         {navItems.map(
-          (item, index) =>
+          (item: any, index) =>
             !item.isHide && (
               <li key={index} onClick={() => item.action?.()}>
                 <Link

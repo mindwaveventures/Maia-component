@@ -27,7 +27,7 @@ export const Menu: React.FC<MenuProps> = ({
   ResourcesPortal = '',
   OuterDomain = '',
 }) => {
-  const getAppUrl = (appUrl: string | undefined, link: string | undefined) => {
+  const getAppUrl = (appUrl: string, link: string) => {
     switch (appUrl) {
       case 'MainPortal':
         return `${MainPortal}${link}`;
@@ -40,14 +40,14 @@ export const Menu: React.FC<MenuProps> = ({
       case 'Action':
         return '#';
       default:
-        return `${link}`;
+        return link ? link : '#';
     }
   };
 
   const toggleBentoMenu = () => {
     changeAction(!openTab);
   };
-  const MenuItem = ({ item }: { item: MenuItemProps }) => {
+  const MenuItem = ({ item }: { item: any }) => {
     return (
       <>
         {!item.isHide && (
