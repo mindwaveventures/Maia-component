@@ -18,6 +18,7 @@ interface HeaderProps {
   useSeoJsonData?: any | null;
   useHeadingJson?: any | null;
   children: ReactNode;
+  brandName: string;
 }
 
 function useViewportWidth() {
@@ -63,6 +64,7 @@ export const HeaderSection: React.FC<HeaderProps> = ({
   user,
   useSeoJsonData,
   useHeadingJson,
+  brandName,
   children,
 }) => {
   const [isMobile, setisMobile] = useState(false);
@@ -144,7 +146,11 @@ export const HeaderSection: React.FC<HeaderProps> = ({
         imageUrl={backgroundImageUrl}
         altText={backgroundImgAltText}
       >
-        <Seo title={seoTitle} description={seoDescription} />
+        <Seo
+          brandName={brandName}
+          title={seoTitle}
+          description={seoDescription}
+        />
         {isAuthenticated && user !== null ? (
           <>
             <div>
