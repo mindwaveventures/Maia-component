@@ -46,7 +46,7 @@
   animation: loading 2s infinite linear;
 }
 .skeleton-logo {
-  @apply relative min-[100px] w-[182px] overflow-hidden rounded-lg;
+  @apply relative min-h-[100px] w-[182px] overflow-hidden rounded-lg;
 }
 .skeleton-logo::before {
   content: '';
