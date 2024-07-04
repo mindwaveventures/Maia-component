@@ -23,6 +23,7 @@ import RollManagementIcon from '../../assets/svgs/RollManagement';
 import ModuleManagementIcon from '../../assets/svgs/ModuleManagement';
 import ServiceManagementIcon from '../../assets/svgs/ServiceManagement';
 import AreaManagementIcon from '../../assets/svgs/AreaManagement';
+import ReferralIcon from '../../assets/svgs/Referral';
 
 type IconComponentProps = { name: string; addClass?: string };
 type IconTypes = { [name: string]: any };
@@ -46,7 +47,7 @@ const iconTypes: IconTypes = {
   'Service Management': ServiceManagementIcon,
   'Module Management': ModuleManagementIcon,
   'Roll Management': RollManagementIcon,
-  Resource: ResourceIcon,
+  Resources: ResourceIcon,
   openIcon: BentoOpenIcon,
   closeIcon: BentoCloseIcon,
   notifyBell: BellIcon,
@@ -56,6 +57,7 @@ const iconTypes: IconTypes = {
   brandLogo: BrandLogoIcon,
   burgerMenu: BurgerMenu,
   infoIcon: Info,
+  Referrals: ReferralIcon,
 };
 
 const IconComponent = ({ name, addClass, ...props }: IconComponentProps) => {
