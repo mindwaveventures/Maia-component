@@ -7,8 +7,6 @@ import useScrollControl from '../../utils/useScrollControl';
 
 export interface BottomNavProps {
   navItems: NavItemData[];
-  isMobile: boolean;
-  showMenu: boolean;
 }
 
 export interface NavItemData {
