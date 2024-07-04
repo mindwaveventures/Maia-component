@@ -32,7 +32,7 @@ const NavItem: React.FC<NavItemData> = ({ to, icon, label, isActive }) => {
   );
 };
 
-const BottomNav: React.FC<BottomNavProps> = ({ navItems }) => {
+export const BottomNav: React.FC<BottomNavProps> = ({ navItems }) => {
   const viewportWidth = useViewportWidth();
   const showMenu = useScrollControl();
 
