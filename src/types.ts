@@ -33,6 +33,7 @@ export type MenuItemProps = {
 export interface MenuItem {
   label: string;
   link?: string;
+  icon?: JSX.Element;
   action?: () => void;
   isActive: boolean;
   isHide: boolean;
