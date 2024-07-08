@@ -1,3 +1,7 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
 /* Navigation new colour */
 .top-nav-block {
   @apply grid gap-7 bg-cover bg-center bg-no-repeat px-0 py-6  transition duration-200 ease-in-out md:mt-0 lg:mt-0 lg:gap-10;

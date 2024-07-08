@@ -1,6 +1,6 @@
 {
   "name": "mv-react-ui-components",
-  "version": "1.0.28",
+  "version": "1.0.30",
   "description": "In this npm package, you will find a comprehensive collection of React UI components.",
   "main": "./dist/index.js",
   "module": "./dist/index.mjs",
@@ -23,5 +23,8 @@
     "tailwindcss": "^3.4.3",
     "tsup": "^8.0.2",
     "typescript": "^5.4.5"
+  },
+  "dependencies": {
+    "autoprefixer": "^10.4.19"
   }
 }
