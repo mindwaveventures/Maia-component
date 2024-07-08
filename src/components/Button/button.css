@@ -1,213 +1,212 @@
 /* Button */
 
 .btn {
-    @apply relative inline-flex !min-h-[48px] cursor-pointer items-center justify-center rounded-lg py-2 px-6 font-semibold no-underline focus:outline-none;
-    transition:
-      background-color 250ms cubic-bezier(0.4, 0, 0.2, 1) 0ms,
-      box-shadow 250ms cubic-bezier(0.4, 0, 0.2, 1) 0ms,
-      border 250ms cubic-bezier(0.4, 0, 0.2, 1) 0ms;
-  }
-  
-  .halo {
-    @apply !flex items-center justify-center border border-outlineColor text-btnSecondaryContent  hover:!bg-btnSecondaryContent hover:!bg-opacity-10  focus-visible:!bg-btnSecondaryContent focus-visible:!bg-opacity-10  active:!bg-btnSecondaryContent   active:!bg-opacity-10;
-  }
-  .halo.active {
-    @apply border-btnSecondaryContent  !bg-btnSecondaryContent !bg-opacity-10;
-  }
-  .halo.close-btn {
-    @apply text-btnPrimaryContent;
-  }
-  
-  .btn > span {
-    @apply align-middle;
-  }
-  
-  .btn i {
-    @apply px-1 text-lg;
-  }
-  
-  .btn span {
-    @apply flex items-center justify-center;
-  }
-  .btn.btn-left {
-    @apply !ml-0;
-  }
-  
-  .btn-i {
-    @apply z-10 h-10 w-10 cursor-pointer border-0 no-underline;
-  }
-  
-  .primary-btn {
-    @apply border border-btnPrimary !bg-btnPrimary !text-btnPrimaryContent hover:!bg-btnPrimaryStates focus-visible:!bg-btnPrimaryStates active:!bg-btnPrimaryStates;
-  }
-  
-  .secondary-btn {
-    @apply flex items-center justify-center gap-3 border border-outlineColor text-btnSecondaryContent  hover:!bg-btnSecondary hover:!bg-opacity-10  focus-visible:!bg-btnSecondary focus-visible:!bg-opacity-10  active:!bg-btnSecondary   active:!bg-opacity-10;
-  }
-  
-  .text-btn {
-    @apply flex items-center justify-center gap-3 !px-6 font-semibold text-baseColor;
-  }
-  .text-btn .MuiSvgIcon-root {
-    @apply text-lg;
-  }
-  
-  .text-primary-btn {
-    @apply flex items-center justify-center  gap-3 bg-transparent !px-6 font-semibold text-btnPrimary hover:!bg-btnPrimary hover:!bg-opacity-10  focus-visible:!bg-btnPrimary focus-visible:!bg-opacity-10  active:!bg-btnPrimary   active:!bg-opacity-10;
-  }
-  
-  .switch-link:hover {
-    @apply no-underline;
-  }
-  
-  .underline-btn {
-    @apply border-none bg-transparent px-0 font-semibold focus-within:underline hover:bg-transparent hover:underline focus:underline active:underline disabled:!bg-transparent disabled:text-disabled disabled:no-underline disabled:hover:!bg-transparent;
-  }
-  .underline-btn.primary {
-    @apply text-btnPrimary;
-  }
-  .underline-btn.delete {
-    @apply text-error;
-  }
-  .text-btn.primary {
-    @apply text-btnPrimary hover:!bg-btnPrimaryStates hover:!bg-opacity-10  hover:text-btnPrimaryStates focus-visible:!bg-btnPrimaryStates focus-visible:!bg-opacity-10  active:!bg-btnPrimaryStates     active:!bg-opacity-10;
-  }
-  .text-btn.secondary {
-    @apply text-btnSecondaryContent hover:!bg-btnSecondaryStates hover:!bg-opacity-10  hover:text-btnSecondaryStates focus-visible:!bg-btnSecondaryStates focus-visible:!bg-opacity-10  active:!bg-btnSecondaryStates     active:!bg-opacity-10;
-  }
-  
-  .text-btn.primary a {
-    @apply text-btnPrimary hover:text-btnPrimaryStates;
-  }
-  .text-btn.delete {
-    @apply text-error hover:!bg-error hover:!bg-opacity-5 hover:text-error hover:text-opacity-80  focus-visible:!bg-error  focus-visible:!bg-opacity-5 active:!bg-error active:!bg-opacity-10;
-  }
-  .text-btn:disabled {
-    @apply !cursor-not-allowed border border-none border-disabled !bg-transparent !text-baseColor !text-opacity-60 shadow-none hover:!bg-disabled hover:!text-baseColor hover:!text-opacity-60;
-  }
-  /* DISABLED */
-  button:disabled {
-    @apply !cursor-not-allowed border border-disabled !bg-disabled !text-baseColor !text-opacity-60 shadow-none hover:!bg-disabled hover:!text-baseColor hover:!text-opacity-60;
-  }
-  
-  .container-ui a {
-    @apply text-white;
-  }
-  .outlined {
-    @apply border;
-  }
-  
-  /* Sizes */
-  .btn--size-s {
-    @apply min-w-80;
-  }
-  
-  .btn--size-m {
-    @apply min-w-100;
-  }
-  .btn--size-l {
-    @apply text-sm;
-  }
-  
-  .btn.btn-icon {
-    @apply mx-auto flex items-center justify-center gap-2 !pl-[18px];
-  }
-  .btn.space-btn {
-    @apply !m-0 !mr-5;
-  }
-  
-  .btn.btn-icon.icon-right span {
-    @apply order-1;
-  }
-  .halo > path {
-    @apply text-btnPrimary;
-  }
-  
-  .halo > svg {
-    @apply w-4 text-btnSecondaryContent;
-  }
-  .icon-big.halo > svg {
-    @apply w-8 text-btnSecondaryContent;
-  }
-  .halo.halo.close-btn > svg {
-    @apply text-btnSecondaryContent;
-  }
-  .primary-btn span {
-    @apply text-btnPrimaryContent;
-  }
-  
-  .border-remove {
-    @apply mb-4 border-0 bg-none;
-  }
-  /* Button End */
-  
-  .link-btn {
-    @apply flex;
-  }
-  .link-btn.delete-btn {
-    @apply justify-end;
-  }
-  .link-btn.delete-btn button {
-    @apply border-0 text-xs font-semibold text-btnPrimary underline;
-  }
-  .link-btn button:disabled {
-    @apply !bg-transparent text-opacity-50;
-  }
-  .link-btn.another-btn {
-    @apply justify-end;
-  }
-  .link-btn.another-btn.another-step-btn {
-    @apply justify-start;
-  }
-  .link-btn.another-btn button {
-    @apply font-semibold text-btnPrimaryStates underline;
-  }
-  .radio-choice .image-radio {
-    @apply mb-0 flex min-h-[48px] items-center justify-center rounded-lg border border-outlineColor text-btnPrimary hover:border-primary hover:border-opacity-20 hover:!bg-btnPrimary hover:!bg-opacity-20  hover:text-btnPrimary focus-within:bg-btnPrimary          focus-within:!bg-opacity-20 focus-within:text-btnPrimary active:!bg-opacity-20 active:text-btnPrimary;
-  }
-  
-  .radio-choice .image-radio input[type='radio'],
-  .check-choice .image-radio input[type='checkbox'] {
-    @apply block h-0 w-0 !important;
-  }
-  .radio-choice .image-radio input:checked + .label-text {
-    @apply flex min-h-[46px] w-full items-center justify-center rounded-lg border border-primary border-opacity-20  bg-btnPrimary bg-opacity-20 px-5 py-2 text-btnPrimary hover:!text-btnPrimary focus-within:border focus-within:border-btnPrimary focus-within:bg-btnPrimary focus-within:bg-opacity-20;
-  }
-  .radio-choice {
-    @apply grid grid-cols-1 gap-4 md:grid-cols-3 lg:grid-cols-4;
-  }
-  .radio-choice.appointment-choice {
-    @apply flex flex-wrap gap-4 !important;
-  }
-  
-  .radio-choice > :not([hidden]) ~ :not([hidden]) {
-    @apply !m-0;
-  }
-  
-  .radio-choice .image-radio .label-text {
-    @apply cursor-pointer font-semibold text-baseColor;
-  }
-  .radio-choice .image-radio:hover .label-text {
-    @apply text-btnPrimary;
-  }
-  
-  .check-choice .image-radio.disabled-option .label-text {
-    @apply cursor-not-allowed !border !border-solid !border-disabled bg-gray-50 text-disabled !important;
-  }
-  .primary-outline {
-    @apply border-2 border-primary;
-  }
-  .btn_transparent {
-    @apply border-none bg-transparent shadow-none;
-  }
-  
-  .iconBtn {
-    @apply flex items-center gap-3 bg-transparent text-base;
-  }
-  
-  .backbtn {
-    @apply flex h-12 w-12 items-center justify-center rounded-full hover:bg-baseColor/10 focus-visible:bg-baseColor/10 active:bg-baseColor/10;
-  }
-  .backbtn > svg {
-    @apply h-auto w-6;
-  }
+  @apply relative inline-flex !min-h-[48px] cursor-pointer items-center justify-center rounded-lg py-2 px-6 font-semibold no-underline focus:outline-none;
+  transition: background-color 250ms cubic-bezier(0.4, 0, 0.2, 1) 0ms,
+    box-shadow 250ms cubic-bezier(0.4, 0, 0.2, 1) 0ms,
+    border 250ms cubic-bezier(0.4, 0, 0.2, 1) 0ms;
+}
+
+.halo {
+  @apply !flex items-center justify-center border border-outlineColor text-btnSecondaryContent  hover:!bg-btnSecondaryContent hover:!bg-opacity-10  focus-visible:!bg-btnSecondaryContent focus-visible:!bg-opacity-10  active:!bg-btnSecondaryContent   active:!bg-opacity-10;
+}
+.halo.active {
+  @apply border-btnSecondaryContent  !bg-btnSecondaryContent !bg-opacity-10;
+}
+.halo.close-btn {
+  @apply text-btnPrimaryContent;
+}
+
+.btn > span {
+  @apply align-middle;
+}
+
+.btn i {
+  @apply px-1 text-lg;
+}
+
+.btn span {
+  @apply flex items-center justify-center;
+}
+.btn.btn-left {
+  @apply !ml-0;
+}
+
+.btn-i {
+  @apply z-10 h-10 w-10 cursor-pointer border-0 no-underline;
+}
+
+.primary-btn {
+  @apply border border-btnPrimary !bg-btnPrimary !text-btnPrimaryContent hover:!bg-btnPrimaryStates focus-visible:!bg-btnPrimaryStates active:!bg-btnPrimaryStates;
+}
+
+.secondary-btn {
+  @apply flex items-center justify-center gap-3 border border-outlineColor text-btnSecondaryContent  hover:!bg-btnSecondary hover:!bg-opacity-10  focus-visible:!bg-btnSecondary focus-visible:!bg-opacity-10  active:!bg-btnSecondary   active:!bg-opacity-10;
+}
+
+.text-btn {
+  @apply flex items-center justify-center gap-3 !px-6 font-semibold text-baseColor;
+}
+.text-btn .MuiSvgIcon-root {
+  @apply text-lg;
+}
+
+.text-primary-btn {
+  @apply flex items-center justify-center  gap-3 bg-transparent !px-6 font-semibold text-btnPrimary hover:!bg-btnPrimary hover:!bg-opacity-10  focus-visible:!bg-btnPrimary focus-visible:!bg-opacity-10  active:!bg-btnPrimary   active:!bg-opacity-10;
+}
+
+.switch-link:hover {
+  @apply no-underline;
+}
+
+.underline-btn {
+  @apply border-none bg-transparent px-0 font-semibold focus-within:underline hover:bg-transparent hover:underline focus:underline active:underline disabled:!bg-transparent disabled:text-disabled disabled:no-underline disabled:hover:!bg-transparent;
+}
+.underline-btn.primary {
+  @apply text-btnPrimary;
+}
+.underline-btn.delete {
+  @apply text-error;
+}
+.text-btn.primary {
+  @apply text-btnPrimary hover:!bg-btnPrimaryStates hover:!bg-opacity-10  hover:text-btnPrimaryStates focus-visible:!bg-btnPrimaryStates focus-visible:!bg-opacity-10  active:!bg-btnPrimaryStates     active:!bg-opacity-10;
+}
+.text-btn.secondary {
+  @apply text-btnSecondaryContent hover:!bg-btnSecondaryStates hover:!bg-opacity-10  hover:text-btnSecondaryStates focus-visible:!bg-btnSecondaryStates focus-visible:!bg-opacity-10  active:!bg-btnSecondaryStates     active:!bg-opacity-10;
+}
+
+.text-btn.primary a {
+  @apply text-btnPrimary hover:text-btnPrimaryStates;
+}
+.text-btn.delete {
+  @apply text-error hover:!bg-error hover:!bg-opacity-5 hover:text-error hover:text-opacity-80  focus-visible:!bg-error  focus-visible:!bg-opacity-5 active:!bg-error active:!bg-opacity-10;
+}
+.text-btn:disabled {
+  @apply !cursor-not-allowed border border-none border-disabled !bg-transparent !text-baseColor !text-opacity-60 shadow-none hover:!bg-disabled hover:!text-baseColor hover:!text-opacity-60;
+}
+/* DISABLED */
+button:disabled {
+  @apply !cursor-not-allowed border border-disabled !bg-disabled !text-baseColor !text-opacity-60 shadow-none hover:!bg-disabled hover:!text-baseColor hover:!text-opacity-60;
+}
+
+.container-ui a {
+  @apply text-white;
+}
+.outlined {
+  @apply border;
+}
+
+/* Sizes */
+.btn--size-s {
+  @apply min-w-80;
+}
+
+.btn--size-m {
+  @apply min-w-100;
+}
+.btn--size-l {
+  @apply text-sm;
+}
+
+.btn.btn-icon {
+  @apply flex items-center justify-center gap-2 !pl-[18px];
+}
+.btn.space-btn {
+  @apply !m-0 !mr-5;
+}
+
+.btn.btn-icon.icon-right span {
+  @apply order-1;
+}
+.halo > path {
+  @apply text-btnPrimary;
+}
+
+.halo > svg {
+  @apply w-4 text-btnSecondaryContent;
+}
+.icon-big.halo > svg {
+  @apply w-8 text-btnSecondaryContent;
+}
+.halo.halo.close-btn > svg {
+  @apply text-btnSecondaryContent;
+}
+.primary-btn span {
+  @apply text-btnPrimaryContent;
+}
+
+.border-remove {
+  @apply mb-4 border-0 bg-none;
+}
+/* Button End */
+
+.link-btn {
+  @apply flex;
+}
+.link-btn.delete-btn {
+  @apply justify-end;
+}
+.link-btn.delete-btn button {
+  @apply border-0 text-xs font-semibold text-btnPrimary underline;
+}
+.link-btn button:disabled {
+  @apply !bg-transparent text-opacity-50;
+}
+.link-btn.another-btn {
+  @apply justify-end;
+}
+.link-btn.another-btn.another-step-btn {
+  @apply justify-start;
+}
+.link-btn.another-btn button {
+  @apply font-semibold text-btnPrimaryStates underline;
+}
+.radio-choice .image-radio {
+  @apply mb-0 flex min-h-[48px] items-center justify-center rounded-lg border border-outlineColor text-btnPrimary hover:border-primary hover:border-opacity-20 hover:!bg-btnPrimary hover:!bg-opacity-20  hover:text-btnPrimary focus-within:bg-btnPrimary          focus-within:!bg-opacity-20 focus-within:text-btnPrimary active:!bg-opacity-20 active:text-btnPrimary;
+}
+
+.radio-choice .image-radio input[type='radio'],
+.check-choice .image-radio input[type='checkbox'] {
+  @apply block h-0 w-0 !important;
+}
+.radio-choice .image-radio input:checked + .label-text {
+  @apply flex min-h-[46px] w-full items-center justify-center rounded-lg border border-primary border-opacity-20  bg-btnPrimary bg-opacity-20 px-5 py-2 text-btnPrimary hover:!text-btnPrimary focus-within:border focus-within:border-btnPrimary focus-within:bg-btnPrimary focus-within:bg-opacity-20;
+}
+.radio-choice {
+  @apply grid grid-cols-1 gap-4 md:grid-cols-3 lg:grid-cols-4;
+}
+.radio-choice.appointment-choice {
+  @apply flex flex-wrap gap-4 !important;
+}
+
+.radio-choice > :not([hidden]) ~ :not([hidden]) {
+  @apply !m-0;
+}
+
+.radio-choice .image-radio .label-text {
+  @apply cursor-pointer font-semibold text-baseColor;
+}
+.radio-choice .image-radio:hover .label-text {
+  @apply text-btnPrimary;
+}
+
+.check-choice .image-radio.disabled-option .label-text {
+  @apply cursor-not-allowed !border !border-solid !border-disabled bg-gray-50 text-disabled !important;
+}
+.primary-outline {
+  @apply border-2 border-primary;
+}
+.btn_transparent {
+  @apply border-none bg-transparent shadow-none;
+}
+
+.iconBtn {
+  @apply flex items-center gap-3 bg-transparent text-base;
+}
+
+.backbtn {
+  @apply flex h-12 w-12 items-center justify-center rounded-full hover:bg-baseColor/10 focus-visible:bg-baseColor/10 active:bg-baseColor/10;
+}
+.backbtn > svg {
+  @apply h-auto w-6;
+}
