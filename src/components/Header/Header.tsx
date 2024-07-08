@@ -1,7 +1,6 @@
 import React, { ReactNode, useEffect, useState } from 'react';
 import LazyBackgroundImage from '../LazyBackgroundImg/LazyBackgroundImage';
 import Seo from '../Seo/Seo';
-import { IUserInfo } from '../../types';
 import Button from '../Button/Button';
 import { Link, useLocation, useNavigate } from 'react-router-dom';
 import { getMatchedData, RouteParams } from '../../utils/getMatchedData';
@@ -14,7 +13,6 @@ interface HeaderProps {
   backgroundImageUrl?: string;
   backgroundImgAltText?: string;
   isAuthenticated: boolean;
-  user: any | boolean | null;
   useSeoJsonData?: any | null;
   useHeadingJson?: any | null;
   children: ReactNode;
@@ -61,7 +59,6 @@ export const HeaderSection: React.FC<HeaderProps> = ({
   backgroundImageUrl,
   backgroundImgAltText,
   isAuthenticated,
-  user,
   useSeoJsonData,
   useHeadingJson,
   brandName,
@@ -151,7 +148,7 @@ export const HeaderSection: React.FC<HeaderProps> = ({
           title={seoTitle}
           description={seoDescription}
         />
-        {isAuthenticated && user !== null ? (
+        {isAuthenticated ? (
           <>
             <div>
               <div
