@@ -1,5 +1,5 @@
 import '../BentoMenu/bento.css';
-import React from 'react';
+import React, { useRef } from 'react';
 
 import { Link } from 'react-router-dom';
 
@@ -7,6 +7,8 @@ import Button from '../Button/Button';
 import { Tooltip } from '../Tooltip/Tooltip';
 import { MenuItemProps } from '../../types';
 import IconComponent from '../Icons/Icons';
+import useKeyboard from '../../utils/useKeyboard';
+import useOutsideClick from '../../utils/useOutsideClick';
 
 interface MenuProps {
   menuItems: MenuItemProps[];
@@ -47,6 +49,16 @@ export const Menu: React.FC<MenuProps> = ({
   const toggleBentoMenu = () => {
     changeAction(!openTab);
   };
+
+  const bentoRef = useRef<HTMLDivElement>(null);
+
+  // Use the custom hook
+  useOutsideClick(bentoRef, () => {
+    if (openTab) changeAction(false);
+  });
+
+  useKeyboard(changeAction);
+
   const MenuItem = ({ item }: { item: any }) => {
     return (
       <>
@@ -69,7 +81,7 @@ export const Menu: React.FC<MenuProps> = ({
   };
 
   return (
-    <div className='bento_helpguide hidden lg:block'>
+    <div className='bento_helpguide hidden lg:block' ref={bentoRef}>
       <div className='put-bento-desktop'>
         <div className='bento-desk-wrap'>
           {openTab ? (

@@ -1,10 +1,12 @@
-import React, { useState } from 'react';
+import React, { useRef, useState } from 'react';
 import { Link } from 'react-router-dom';
 
 import './BurgerMenu.css';
 import BentoCloseIcon from '../../assets/svgs/BentoClose';
 import { Logo } from '../Logo/Logo';
 import IconComponent from '../Icons/Icons';
+import useKeyboard from '../../utils/useKeyboard';
+import useOutsideClick from '../../utils/useOutsideClick';
 
 interface MenuItemProps {
   item: IBurgerMenuChildValues;
@@ -38,6 +40,8 @@ interface BurgerMenuProps {
   Name?: string;
   id?: string;
   LogoUrl?: string;
+  changeAction: (status: boolean) => void;
+  openTab: boolean | null;
   MainPortal?: string;
   QBPortal?: string;
   ResourcesPortal?: string;
@@ -115,13 +119,14 @@ export const BurgerMenu: React.FC<BurgerMenuProps> = ({
   Name = '',
   id,
   LogoUrl = '',
+  changeAction,
+  openTab,
   MainPortal = '',
   QBPortal = '',
   ResourcesPortal = '',
   OuterDomain = '',
 }) => {
   const { selectedMenu, toggleMenu } = useMenuState();
-  const [mobileToggle, setMobileToggle] = useState<boolean>(false);
 
   const getAppUrl = (appUrl?: string, link?: string) => {
     switch (appUrl) {
@@ -140,12 +145,21 @@ export const BurgerMenu: React.FC<BurgerMenuProps> = ({
     }
   };
 
+  const burgerRef = useRef<HTMLDivElement>(null);
+
+  // Use the custom hook
+  useOutsideClick(burgerRef, () => {
+    if (openTab) changeAction(false);
+  });
+
   const toggleBentoMenu = () => {
-    setMobileToggle(!mobileToggle);
+    changeAction(!openTab);
   };
 
+  useKeyboard(changeAction);
+
   return (
-    <div className='flex items-center lg:hidden'>
+    <div className='flex items-center lg:hidden' ref={burgerRef}>
       <button
         type='button'
         className='bento-icon acc-icon'
@@ -155,7 +169,7 @@ export const BurgerMenu: React.FC<BurgerMenuProps> = ({
       >
         <IconComponent name='burgerMenu' addClass='bento-icon fill-primary' />
       </button>
-      {mobileToggle ? (
+      {openTab ? (
         <div className='burger-menu-section'>
           <div className='put-bento-desktop'>
             <div className='bento-desk-wrap'>
@@ -166,7 +180,7 @@ export const BurgerMenu: React.FC<BurgerMenuProps> = ({
                     className='bento-icon acc-icon'
                     aria-label='Bento menu'
                     aria-haspopup='true'
-                    onClick={() => setMobileToggle(false)}
+                    onClick={toggleBentoMenu}
                   >
                     <BentoCloseIcon className='bento-icon' />
                   </button>

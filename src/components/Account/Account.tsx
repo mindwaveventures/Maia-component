@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react';
+import React, { useEffect, useRef, useState } from 'react';
 import { Tooltip } from '../Tooltip/Tooltip';
 import Button from '../Button/Button';
 import IconComponent from '../Icons/Icons';
@@ -6,6 +6,8 @@ import { IUserInfo, MenuItemProps } from '../../types';
 import { Link } from 'react-router-dom';
 
 import './Account.css';
+import useKeyboard from '../../utils/useKeyboard';
+import useOutsideClick from '../../utils/useOutsideClick';
 
 interface AccountProps {
   proxyUsers?: any[];
@@ -33,6 +35,15 @@ export const Account: React.FC<AccountProps> = ({
   const toggleBentoMenu = () => {
     changeAction(!openTab);
   };
+
+  const accountRef = useRef<HTMLDivElement>(null);
+
+  // Use the custom hook
+  useOutsideClick(accountRef, () => {
+    if (openTab) changeAction(false);
+  });
+
+  useKeyboard(changeAction);
 
   const getAppUrl = (appUrl: string, link: string) => {
     switch (appUrl) {
@@ -67,7 +78,7 @@ export const Account: React.FC<AccountProps> = ({
   };
 
   return (
-    <div className='dropdown-group profile profile_helpguide'>
+    <div className='dropdown-group profile profile_helpguide' ref={accountRef}>
       {openTab ? (
         <Tooltip content='Avatar' direction='bottom'>
           <Button

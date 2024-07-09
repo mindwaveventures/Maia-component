@@ -1,14 +1,16 @@
-import React, { ReactNode } from 'react';
+import React, { ReactNode, useEffect, useRef } from 'react';
 
 import { Tooltip } from '../Tooltip/Tooltip';
 import Button from '../Button/Button';
 
 import './notification.css';
 import IconComponent from '../Icons/Icons';
+import useKeyboard from '../../utils/useKeyboard';
+import useOutsideClick from '../../utils/useOutsideClick';
 
 interface NotificationProps {
   dropStatus: boolean;
-  openNotify: () => Promise<void>;
+  openNotify: (status: boolean) => void;
   goNotifications: () => void;
   totalNotifications: number;
   children: ReactNode;
@@ -21,8 +23,19 @@ export const NavNotification: React.FC<NotificationProps> = ({
   goNotifications,
   children,
 }) => {
+  const notificationRef = useRef<HTMLDivElement>(null);
+
+  // Use the custom hook
+  useOutsideClick(notificationRef, () => {
+    if (dropStatus) openNotify(false);
+  });
+  const toggleBentoMenu = () => {
+    openNotify(!dropStatus);
+  };
+  useKeyboard(openNotify);
+
   return (
-    <div className='notification-wrap notify_helpguide'>
+    <div className='notification-wrap notify_helpguide' ref={notificationRef}>
       <div className='notification'>
         {dropStatus ? (
           <Tooltip content='Notification' direction='bottom'>
@@ -35,7 +48,7 @@ export const NavNotification: React.FC<NotificationProps> = ({
               text='close notification'
               aria-label='Close Notification'
               aria-expanded='true'
-              onClick={openNotify}
+              onClick={toggleBentoMenu}
               addClass='icon-wrapper acc-icon'
               data-tooltip='Notification'
             >
@@ -56,7 +69,7 @@ export const NavNotification: React.FC<NotificationProps> = ({
               aria-label='Open Notification'
               aria-expanded='false'
               aria-haspopup='true'
-              onClick={openNotify}
+              onClick={toggleBentoMenu}
               addClass='icon-wrapper acc-icon'
               data-tooltip='Notification'
             >
