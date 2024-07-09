@@ -81,65 +81,69 @@ export const Menu: React.FC<MenuProps> = ({
   };
 
   return (
-    <div className='bento_helpguide hidden lg:block' ref={bentoRef}>
-      <div className='put-bento-desktop'>
-        <div className='bento-desk-wrap'>
-          {openTab ? (
-            <Tooltip content='Bento Close' direction='top'>
-              <Button
-                btntype='button'
-                customButton={true}
-                btnCatogery='toggle'
-                status={openTab}
-                showLabel={false}
-                text='close bento'
-                ariaLabel='Close bento menu'
-                aria-expanded='true'
-                onClick={toggleBentoMenu}
-                addClass='bento-icon acc-icon'
-                data-tooltip='Bento menu'
-              >
-                <IconComponent name='closeIcon' />
-              </Button>
-            </Tooltip>
-          ) : (
-            <Tooltip content='Bento menu' direction='top'>
-              <Button
-                btnId='accessibileMenu'
-                btntype='button'
-                customButton={true}
-                btnCatogery='toggle'
-                status={openTab}
-                showLabel={false}
-                text='open bento'
-                ariaLabel='Open bento menu'
-                aria-expanded='false'
-                aria-haspopup='true'
-                onClick={toggleBentoMenu}
-                addClass='bento-icon acc-icon'
-                data-tooltip='Bento menu'
-              >
-                <IconComponent name='openIcon' />
-              </Button>
-            </Tooltip>
-          )}
-          {openTab && (
-            <div className='bento-content' id='bento-menu-content'>
-              <div className='menu-wrapper'>
-                <ul
-                  aria-labelledby='accessibileMenu'
-                  role='menu'
-                  className='bento-row grid-cols-2'
-                >
-                  {menuItems.map((item: MenuItemProps, index: any) => (
-                    <MenuItem key={index} item={item} />
-                  ))}
-                </ul>
-              </div>
+    <>
+      {menuItems && menuItems.length > 0 && (
+        <div className='bento_helpguide hidden lg:block' ref={bentoRef}>
+          <div className='put-bento-desktop'>
+            <div className='bento-desk-wrap'>
+              {openTab ? (
+                <Tooltip content='Bento Close' direction='top'>
+                  <Button
+                    btntype='button'
+                    customButton={true}
+                    btnCatogery='toggle'
+                    status={openTab}
+                    showLabel={false}
+                    text='close bento'
+                    ariaLabel='Close bento menu'
+                    aria-expanded='true'
+                    onClick={toggleBentoMenu}
+                    addClass='bento-icon acc-icon'
+                    data-tooltip='Bento menu'
+                  >
+                    <IconComponent name='closeIcon' />
+                  </Button>
+                </Tooltip>
+              ) : (
+                <Tooltip content='Bento menu' direction='top'>
+                  <Button
+                    btnId='accessibileMenu'
+                    btntype='button'
+                    customButton={true}
+                    btnCatogery='toggle'
+                    status={openTab}
+                    showLabel={false}
+                    text='open bento'
+                    ariaLabel='Open bento menu'
+                    aria-expanded='false'
+                    aria-haspopup='true'
+                    onClick={toggleBentoMenu}
+                    addClass='bento-icon acc-icon'
+                    data-tooltip='Bento menu'
+                  >
+                    <IconComponent name='openIcon' />
+                  </Button>
+                </Tooltip>
+              )}
+              {openTab && (
+                <div className='bento-content' id='bento-menu-content'>
+                  <div className='menu-wrapper'>
+                    <ul
+                      aria-labelledby='accessibileMenu'
+                      role='menu'
+                      className='bento-row grid-cols-2'
+                    >
+                      {menuItems.map((item: MenuItemProps, index: any) => (
+                        <MenuItem key={index} item={item} />
+                      ))}
+                    </ul>
+                  </div>
+                </div>
+              )}
             </div>
-          )}
+          </div>
         </div>
-      </div>
-    </div>
+      )}
+    </>
   );
 };

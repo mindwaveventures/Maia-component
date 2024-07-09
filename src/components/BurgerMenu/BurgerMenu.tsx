@@ -159,70 +159,77 @@ export const BurgerMenu: React.FC<BurgerMenuProps> = ({
   useKeyboard(changeAction);
 
   return (
-    <div className='flex items-center lg:hidden' ref={burgerRef}>
-      <button
-        type='button'
-        className='bento-icon acc-icon'
-        onClick={toggleBentoMenu}
-        aria-label='Bento menu'
-        aria-haspopup='true'
-      >
-        <IconComponent name='burgerMenu' addClass='bento-icon fill-primary' />
-      </button>
-      {openTab ? (
-        <div className='burger-menu-section'>
-          <div className='put-bento-desktop'>
-            <div className='bento-desk-wrap'>
-              <div className='bento-content' id='bento-menu-content'>
-                <div className='burger-header flex items-center gap-4'>
-                  <button
-                    type='button'
-                    className='bento-icon acc-icon'
-                    aria-label='Bento menu'
-                    aria-haspopup='true'
-                    onClick={toggleBentoMenu}
-                  >
-                    <BentoCloseIcon className='bento-icon' />
-                  </button>
-                  <div className='client-logo flex items-center'>
-                    <div className='footer-logo-blk'>
-                      <div className='sm-h-5' />
-                      <Logo title={Name} key={id} imageUrl={LogoUrl} />
+    <>
+      {menuData && menuData.length > 0 && (
+        <div className='flex items-center lg:hidden' ref={burgerRef}>
+          <button
+            type='button'
+            className='bento-icon acc-icon'
+            onClick={toggleBentoMenu}
+            aria-label='Bento menu'
+            aria-haspopup='true'
+          >
+            <IconComponent
+              name='burgerMenu'
+              addClass='bento-icon fill-primary'
+            />
+          </button>
+          {openTab ? (
+            <div className='burger-menu-section'>
+              <div className='put-bento-desktop'>
+                <div className='bento-desk-wrap'>
+                  <div className='bento-content' id='bento-menu-content'>
+                    <div className='burger-header flex items-center gap-4'>
+                      <button
+                        type='button'
+                        className='bento-icon acc-icon'
+                        aria-label='Bento menu'
+                        aria-haspopup='true'
+                        onClick={toggleBentoMenu}
+                      >
+                        <BentoCloseIcon className='bento-icon' />
+                      </button>
+                      <div className='client-logo flex items-center'>
+                        <div className='footer-logo-blk'>
+                          <div className='sm-h-5' />
+                          <Logo title={Name} key={id} imageUrl={LogoUrl} />
+                        </div>
+                      </div>
+                    </div>
+                    <div className='menu-items'>
+                      <ul className='list-group'>
+                        {menuData.map((item, idx) => {
+                          const isActive = selectedMenu === item.name;
+                          return (
+                            <React.Fragment key={`menu-list-${idx}`}>
+                              <MenuItem
+                                item={item}
+                                isActive={isActive}
+                                onClick={toggleMenu}
+                                getAppUrl={getAppUrl}
+                              />
+                              {isActive &&
+                                item.children &&
+                                item.children.length > 0 && (
+                                  <MenuChildrenItems
+                                    children={item.children}
+                                    onSelect={toggleMenu}
+                                    getAppUrl={getAppUrl}
+                                  />
+                                )}
+                            </React.Fragment>
+                          );
+                        })}
+                      </ul>
                     </div>
                   </div>
                 </div>
-                <div className='menu-items'>
-                  <ul className='list-group'>
-                    {menuData.map((item, idx) => {
-                      const isActive = selectedMenu === item.name;
-                      return (
-                        <React.Fragment key={`menu-list-${idx}`}>
-                          <MenuItem
-                            item={item}
-                            isActive={isActive}
-                            onClick={toggleMenu}
-                            getAppUrl={getAppUrl}
-                          />
-                          {isActive &&
-                            item.children &&
-                            item.children.length > 0 && (
-                              <MenuChildrenItems
-                                children={item.children}
-                                onSelect={toggleMenu}
-                                getAppUrl={getAppUrl}
-                              />
-                            )}
-                        </React.Fragment>
-                      );
-                    })}
-                  </ul>
-                </div>
               </div>
             </div>
-          </div>
+          ) : null}
         </div>
-      ) : null}
-    </div>
+      )}
+    </>
   );
 };
 

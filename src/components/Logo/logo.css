@@ -1,5 +1,5 @@
 .nav-group .img-logo-wrapper {
-  @apply max-h-[200px] bg-white p-1 max-w-[190px];
+  @apply max-h-[100px] bg-white p-1 max-w-[190px];
 }
 
 .mobile-top-nav-block .img-logo-wrapper img {
@@ -7,7 +7,7 @@
 }
 
 .img-logo-wrapper img {
-  @apply h-full max-w-full object-cover;
+  @apply h-auto max-w-full object-contain;
 }
 
 /* Div loader start */
