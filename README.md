@@ -1,3 +1,17 @@
+# Mediwave Components
+
+Mediwave Components is a collection of reusable React components designed to streamline the development of medical web applications.
+
+## Installation
+
+To install Mediwave Components in your project, use Yarn:
+
+```sh
+yarn add mediwave-components
+```
+
+# Documentation
+
 # CommonHeader Component
 
 ## Overview
@@ -151,7 +165,7 @@ import {
   MenuItem,
   MenuItemProps,
   UserProfileInfo,
-} from 'mv-react-ui-components';
+} from 'mediwave-components';
 
 import { useHeadingJson } from '../userdata/useHeadingJson';
 import { useSeoJsonData } from '../userdata/seoJsonDatas';
@@ -414,7 +428,7 @@ The `useKeyboard` hook is a custom React hook designed to handle keyboard events
 First, import the `useKeyboard` hook into your component:
 
 ```jsx
-import useKeyboard from 'mv-react-ui-components';
+import useKeyboard from 'mediwave-components';
 ```
 
 ### Using the Hook
@@ -423,7 +437,7 @@ Use the `useKeyboard` hook in your component by passing a callback function that
 
 ```jsx
 import React, { useState } from 'react';
-import useKeyboard from 'mv-react-ui-components';
+import useKeyboard from 'mediwave-components';
 
 const MyComponent = () => {
   const [isOpen, setIsOpen] = useState(false);
@@ -481,7 +495,7 @@ The `useOutsideClick` hook is a custom React hook designed to handle clicks outs
 First, import the `useOutsideClick` hook into your component:
 
 ```jsx
-import useOutsideClick from 'mv-react-ui-components';
+import useOutsideClick from 'mediwave-components';
 ```
 
 ### Using the Hook
@@ -490,7 +504,7 @@ Use the `useOutsideClick` hook in your component by passing a reference to the e
 
 ```jsx
 import React, { useRef, useState } from 'react';
-import useOutsideClick from 'mv-react-ui-components';
+import useOutsideClick from 'mediwave-components';
 
 const MyComponent = () => {
   const [isOpen, setIsOpen] = useState(false);
@@ -586,7 +600,7 @@ The `usePathSegments` and `getPathSegments` hooks are custom React hooks designe
 First, import the `usePathSegments` and `getPathSegments` hooks into your component:
 
 ```jsx
-import { usePathSegments, getPathSegments } from 'mv-react-ui-components';
+import { usePathSegments, getPathSegments } from 'mediwave-components';
 ```
 
 ### Using the Hooks
@@ -595,7 +609,7 @@ Use the `usePathSegments` hook to get a specific path segment from the URL:
 
 ```jsx
 import React from 'react';
-import { usePathSegments } from 'mv-react-ui-components';
+import { usePathSegments } from 'mediwave-components';
 
 const MyComponent = () => {
   const segment = usePathSegments(1); // Get the second segment of the path
@@ -614,7 +628,7 @@ Use the `getPathSegments` hook to get a specific portion of the path from the UR
 
 ```jsx
 import React from 'react';
-import { getPathSegments } from 'mv-react-ui-components';
+import { getPathSegments } from 'mediwave-components';
 
 const MyComponent = () => {
   const partialPath = getPathSegments(2); // Get the path up to the third segment
@@ -660,7 +674,7 @@ The `useLastTwoPathSegments` hook is a custom React hook designed to retrieve th
 First, import the `useLastTwoPathSegments` hook into your component:
 
 ```jsx
-import { useLastTwoPathSegments } from 'mv-react-ui-components';
+import { useLastTwoPathSegments } from 'mediwave-components';
 ```
 
 ### Using the Hook
@@ -669,7 +683,7 @@ Use the `useLastTwoPathSegments` hook in your component to get the concatenated 
 
 ```jsx
 import React from 'react';
-import { useLastTwoPathSegments } from 'mv-react-ui-components';
+import { useLastTwoPathSegments } from 'mediwave-components';
 
 const MyComponent = () => {
   const lastTwoSegments = useLastTwoPathSegments();
@@ -703,4 +717,4 @@ export default MyComponent;
 
 ## License
 
-This project is licensed under the MIT License.
+Mediwave Components is licensed under the MIT License. See the [LICENSE](#) file for more details.
