@@ -1,6 +1,9 @@
 import { RefObject, useEffect } from 'react';
 
-const useOutsideClick = (ref: RefObject<HTMLElement>, handler: () => void) => {
+export const useOutsideClick = (
+  ref: RefObject<HTMLElement>,
+  handler: () => void
+) => {
   useEffect(() => {
     const listener = (event: Event) => {
       // If the click is inside the element, return without doing anything
