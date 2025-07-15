@@ -1,6 +1,8 @@
 .bottom-navbar {
-  @apply fixed bottom-0 left-0 z-50 w-full border-t border-outlineColor bg-neutral;
+  @apply fixed bottom-0 left-0 z-50 w-full border-t-2 border-primary bg-white shadow-lg;
   -webkit-transform: translate3d(0, 0, 0);
+  box-shadow: 0 -4px 6px -1px rgba(0, 0, 0, 0.1),
+    0 -2px 4px -1px rgba(0, 0, 0, 0.06);
 }
 .bottom-nav {
   @apply m-0 mx-auto flex h-full items-center justify-evenly font-medium;
@@ -26,4 +28,10 @@
 
 .bottom-nav-link.active {
   @apply !text-[12px] font-semibold text-primary;
+}
+
+/* Active indicator - top bar instead of dot */
+.bottom-nav-item[aria-current="page"]::before {
+  content: "";
+  @apply absolute top-0 left-1/2 transform -translate-x-1/2 w-12 h-1 bg-primary;
 }
