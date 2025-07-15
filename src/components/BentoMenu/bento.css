@@ -12,8 +12,9 @@
   @apply fill-current text-neutral lg:text-headerIcon;
 }
 .bento-content {
-  @apply absolute top-11 right-0 z-[999] w-[328px] rounded-xl border-outlineColor bg-neutral p-2 text-baseColor shadow;
+  @apply absolute top-11 right-0 w-[328px] rounded-xl border-outlineColor bg-neutral p-2 text-baseColor shadow;
   max-width: 328px;
+  z-index: 999999;
 }
 .menu-wrapper {
   @apply rounded-xl bg-card p-6;

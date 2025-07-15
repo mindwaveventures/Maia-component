@@ -1,19 +1,30 @@
 .pri-nav-wrap {
-  @apply hidden justify-start overflow-x-auto whitespace-nowrap text-center sm:justify-center sm:whitespace-normal lg:flex;
+  @apply hidden justify-center overflow-x-auto whitespace-nowrap text-center sm:whitespace-normal lg:flex;
   -webkit-overflow-scrolling: touch;
 }
 
 .pri-nav-wrap ul {
-  @apply flex flex-wrap items-center;
+  @apply flex flex-wrap items-center gap-1;
 }
+
 .pri-nav-wrap ul li {
   @apply m-0;
 }
 
 .pri-nav-link {
-  @apply m-0 whitespace-nowrap px-4 font-header text-baseColor no-underline transition duration-200 ease-in-out hover:text-titleColor;
+  @apply m-0 whitespace-nowrap px-3 py-2 font-header text-baseColor no-underline transition duration-200 ease-in-out hover:text-titleColor hover:bg-primary hover:bg-opacity-5 rounded-md;
 }
 
 .pri-nav-link.active {
-  @apply font-bold text-headerIcon;
+  @apply font-bold !py-3 text-primary rounded-lg bg-primary bg-opacity-10 !important;
+}
+
+/* Ensure active state is more prominent */
+.pri-nav-link.active:hover {
+  @apply text-primary bg-primary bg-opacity-15;
+}
+
+/* Focus state for accessibility */
+.pri-nav-link:focus-visible {
+  @apply outline-none ring-2 ring-primary ring-opacity-50;
 }
