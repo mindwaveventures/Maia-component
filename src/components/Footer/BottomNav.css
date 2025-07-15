@@ -1,29 +1,132 @@
 .bottom-navbar {
-  @apply fixed bottom-0 left-0 z-50 w-full border-t border-outlineColor bg-neutral;
+  @apply fixed bottom-0 left-0 z-50 w-full border-t-2 border-primary bg-white shadow-lg;
   -webkit-transform: translate3d(0, 0, 0);
+  box-shadow: 0 -4px 6px -1px rgba(0, 0, 0, 0.1),
+    0 -2px 4px -1px rgba(0, 0, 0, 0.06);
 }
+
 .bottom-nav {
   @apply m-0 mx-auto flex h-full items-center justify-evenly font-medium;
 }
+
 .bottom-nav li {
   @apply m-0 grid place-content-center gap-1 py-2;
 }
+
 .bottom-nav li.active {
   @apply text-primary;
 }
+
 .bottom-nav li a {
   line-height: 12px;
 }
+
 .bottom-nav li .bottom-nav-link {
   @apply !text-[12px];
 }
+
 .bottom-nav svg {
   @apply mx-auto h-6 w-6 md:h-8 md:w-8;
 }
+
 .bottom-nav-link {
   @apply m-0 grid gap-1 font-body !text-[12px] text-baseColor no-underline transition duration-200 ease-in-out md:gap-2;
 }
 
 .bottom-nav-link.active {
   @apply !text-[12px] font-semibold text-primary;
+}
+
+/* Active indicator - top bar instead of dot */
+.bottom-nav-item[aria-current="page"]::before {
+  content: "";
+  @apply absolute top-0 left-1/2 transform -translate-x-1/2 w-12 h-1 bg-primary;
+}
+
+/* Accessibility improvements */
+.bottom-nav-link:focus {
+  @apply outline-none ring-2 ring-primary ring-offset-2 ring-offset-neutral;
+}
+
+.bottom-nav-link:focus-visible {
+  @apply ring-2 ring-primary ring-offset-2 ring-offset-neutral;
+}
+
+/* Screen reader only content */
+.sr-only {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  white-space: nowrap;
+  border: 0;
+}
+
+.sr-only:focus {
+  position: static;
+  width: auto;
+  height: auto;
+  padding: 0.5rem;
+  margin: 0;
+  overflow: visible;
+  clip: auto;
+  white-space: normal;
+}
+
+/* Navigation item improvements */
+.bottom-nav-item {
+  @apply relative;
+}
+
+.bottom-nav-item[aria-current="page"] {
+  @apply text-primary;
+}
+
+/* Icon and label styling */
+.nav-icon {
+  @apply flex items-center justify-center;
+}
+
+.nav-label {
+  @apply text-center;
+}
+
+/* High contrast mode support */
+@media (prefers-contrast: high) {
+  .bottom-nav-link {
+    @apply border border-transparent;
+  }
+
+  .bottom-nav-link:focus {
+    @apply border-primary;
+  }
+
+  .bottom-nav-link.active {
+    @apply border-primary bg-primary bg-opacity-10;
+  }
+}
+
+/* Reduced motion support */
+@media (prefers-reduced-motion: reduce) {
+  .bottom-nav-link {
+    @apply transition-none;
+  }
+}
+
+/* Dark mode support */
+@media (prefers-color-scheme: dark) {
+  .bottom-navbar {
+    @apply bg-neutral border-gray-700;
+  }
+
+  .bottom-nav-link {
+    @apply text-primary;
+  }
+
+  .bottom-nav-link.active {
+    @apply text-primary;
+  }
 }

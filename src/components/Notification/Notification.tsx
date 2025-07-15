@@ -1,12 +1,12 @@
-import React, { ReactNode, useEffect, useRef } from 'react';
+import React, { ReactNode, useEffect, useRef } from "react";
 
-import { Tooltip } from '../Tooltip/Tooltip';
-import Button from '../Button/Button';
+import { Tooltip } from "../Tooltip/Tooltip";
+import Button from "../Button/Button";
 
-import './notification.css';
-import IconComponent from '../Icons/Icons';
-import useKeyboard from '../../utils/useKeyboard';
-import useOutsideClick from '../../utils/useOutsideClick';
+import "./notification.css";
+import IconComponent from "../Icons/Icons";
+import useKeyboard from "../../utils/useKeyboard";
+import useOutsideClick from "../../utils/useOutsideClick";
 
 interface NotificationProps {
   dropStatus: boolean;
@@ -35,64 +35,64 @@ export const NavNotification: React.FC<NotificationProps> = ({
   useKeyboard(openNotify);
 
   return (
-    <div className='notification-wrap notify_helpguide' ref={notificationRef}>
-      <div className='notification'>
+    <div className="notification-wrap notify_helpguide" ref={notificationRef}>
+      <div className="notification">
         {dropStatus ? (
-          <Tooltip content='Notification' direction='bottom'>
+          <Tooltip content="Notification" direction="bottom">
             <Button
-              btntype='button'
+              btntype="button"
               customButton={true}
-              btnCatogery='toggle'
+              btnCatogery="toggle"
               status={dropStatus}
               showLabel={false}
-              text='close notification'
-              aria-label='Close Notification'
-              aria-expanded='true'
+              text="close notification"
+              aria-label="Close Notification"
+              aria-expanded="true"
               onClick={toggleBentoMenu}
-              addClass='icon-wrapper acc-icon'
-              data-tooltip='Notification'
+              addClass="icon-wrapper acc-icon aaa"
+              data-tooltip="Notification"
             >
-              {totalNotifications > 0 && <div className='notify-dot' />}
-              <IconComponent name='notifyBell' />
+              {totalNotifications > 0 && <div className="notify-dot" />}
+              <IconComponent name="notifyBell" />
               &#8203;
             </Button>
           </Tooltip>
         ) : (
-          <Tooltip content='Notification' direction='bottom'>
+          <Tooltip content="Notification" direction="bottom">
             <Button
-              btntype='button'
+              btntype="button"
               customButton={true}
-              btnCatogery='toggle'
+              btnCatogery="toggle"
               status={dropStatus}
               showLabel={false}
-              text='open notification'
-              aria-label='Open Notification'
-              aria-expanded='false'
-              aria-haspopup='true'
+              text="open notification"
+              aria-label="Open Notification"
+              aria-expanded="false"
+              aria-haspopup="true"
               onClick={toggleBentoMenu}
-              addClass='icon-wrapper acc-icon'
-              data-tooltip='Notification'
+              addClass="icon-wrapper acc-icon aaaa"
+              data-tooltip="Notification"
             >
-              {totalNotifications > 0 && <div className='notify-dot' />}
-              <IconComponent name='notifyBell' />
+              {totalNotifications > 0 && <div className="notify-dot" />}
+              <IconComponent name="notifyBell" />
               &#8203;
             </Button>
           </Tooltip>
         )}
         {dropStatus && (
-          <div className='card-notify'>
-            <div className='notify-head'>
-              <span className='font-bold'>Notifications</span>{' '}
-              <span translate='no' className='font-semibold'>
+          <div className="card-notify">
+            <div className="notify-head">
+              <span className="font-bold">Notifications</span>{" "}
+              <span translate="no" className="font-semibold">
                 {totalNotifications ? `( ${totalNotifications} )` : null}
               </span>
             </div>
-            <div className='notify-body'>{children}</div>
-            <div className='text-center'>
+            <div className="notify-body">{children}</div>
+            <div className="text-center">
               <Button
-                btntype='button'
-                text='View all'
-                addClass='btn  primary-btn'
+                btntype="button"
+                text="View all"
+                addClass="btn  primary-btn"
                 onClick={goNotifications}
               />
             </div>

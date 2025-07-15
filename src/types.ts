@@ -1,20 +1,20 @@
-import { ReactElement } from 'react';
+import { ReactElement } from "react";
 
 type MenuItemLabel =
-  | 'Dashboard'
-  | 'Notifications'
-  | 'Messaging'
-  | 'Appointments'
-  | 'Circle of care'
-  | 'Questionnaires'
-  | 'Forms'
-  | 'Carer dashboard'
-  | 'User management'
-  | 'Permission management'
-  | 'Trust management'
-  | 'Theme management'
-  | 'ICB management'
-  | 'Resource hub';
+  | "Dashboard"
+  | "Notifications"
+  | "Messaging"
+  | "Appointments"
+  | "Circle of care"
+  | "Questionnaires"
+  | "Forms"
+  | "Carer dashboard"
+  | "User management"
+  | "Permission management"
+  | "Trust management"
+  | "Theme management"
+  | "ICB management"
+  | "Resource hub";
 
 export type MenuItemProps = {
   label: MenuItemLabel | string;
@@ -23,11 +23,11 @@ export type MenuItemProps = {
   icon?: ReactElement;
   isHide?: boolean;
   appUrl?:
-    | 'MainPortal'
-    | 'QBPortal'
-    | 'ResourcesPortal'
-    | 'OuterDomain'
-    | 'Action';
+    | "MainPortal"
+    | "QBPortal"
+    | "ResourcesPortal"
+    | "OuterDomain"
+    | "Action";
 };
 
 export interface MenuItem {
@@ -40,11 +40,26 @@ export interface MenuItem {
   permissionKey?: any;
   module?: any;
   appUrl?:
-    | 'MainPortal'
-    | 'QBPortal'
-    | 'ResourcesPortal'
-    | 'OuterDomain'
-    | 'Action';
+    | "MainPortal"
+    | "QBPortal"
+    | "ResourcesPortal"
+    | "OuterDomain"
+    | "Action";
+}
+
+export interface IGlobelSettings {
+  modules: {
+    card_myHealth?: boolean;
+    card_tracker?: boolean;
+    card_connect?: boolean;
+    card_referral?: boolean;
+    card_resource?: boolean;
+    referral?: any; // Use any to avoid type conflicts
+    myHealth?: {
+      appointment?: boolean;
+      questionnaires?: boolean;
+    };
+  };
 }
 
 export interface ITrustInfo {
@@ -76,7 +91,7 @@ export interface IUserInfo {
   authenticatedApps?: any;
   smartDashboard?: any;
   gender?: string;
-  loginType?: 'normal' | 'google' | 'nhs' | 'azure';
+  loginType?: "normal" | "google" | "nhs" | "azure";
   maritalStatus?: string;
   ethnicity?: string;
   languagesSpoken?: string[];
@@ -118,9 +133,9 @@ export interface IBurgerMenu {
   name?: string;
   action?: () => void;
   appUrl?:
-    | 'MainPortal'
-    | 'QBPortal'
-    | 'ResourcesPortal'
-    | 'OuterDomain'
-    | 'Action';
+    | "MainPortal"
+    | "QBPortal"
+    | "ResourcesPortal"
+    | "OuterDomain"
+    | "Action";
 }

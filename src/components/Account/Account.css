@@ -12,16 +12,17 @@
   @apply absolute right-2 top-4 inline h-0 w-0;
   margin-left: 0.255em;
   vertical-align: 0.255em;
-  content: '';
+  content: "";
   border-top: 0.4em solid;
   border-right: 0.4em solid transparent;
   border-bottom: 0;
   border-left: 0.4em solid transparent;
 }
 .dropdown-menu {
-  @apply absolute right-0 top-6 z-10 mt-3 rounded-xl  border border-disabled bg-neutral py-2 text-left shadow;
+  @apply absolute right-0 top-6 mt-3 rounded-xl  border border-disabled bg-neutral py-2 text-left shadow;
   min-width: 150px;
   max-width: 250px;
+  z-index: 99999;
 }
 .dropdown-menu.hide {
   @apply hidden;
@@ -57,4 +58,17 @@
 
 .profileNav > path {
   @apply text-neutral lg:text-headerIcon;
+}
+
+/* Screen reader only class for accessibility */
+.sr-only {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  white-space: nowrap;
+  border: 0;
 }
