@@ -40,7 +40,7 @@
 /* Active indicator - top bar instead of dot */
 .bottom-nav-item[aria-current="page"]::before {
   content: "";
-  @apply absolute top-0 left-1/2 transform -translate-x-1/2 w-12 h-1 bg-primary;
+  @apply absolute top-0 left-1/2 transform -translate-x-1/2 w-full h-1 bg-primary;
 }
 
 /* Accessibility improvements */

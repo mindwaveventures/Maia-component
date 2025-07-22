@@ -74,7 +74,7 @@
 }
 
 .bento-icon {
-  @apply text-primary;
+  @apply text-baseColor;
 }
 
 .top-nav-block .bento-icon {
@@ -149,6 +149,18 @@
 /* Improved nav-group with better spacing and layout */
 .nav-group {
   @apply z-50 flex min-h-[60px] w-full items-center justify-between bg-navbar px-4 py-2 lg:relative lg:bg-transparent lg:py-0 lg:px-6;
+}
+
+/* Hide navigation elements on mobile */
+@media (max-width: 1023px) {
+  .nav-group .pri-nav-wrap {
+    @apply hidden;
+  }
+
+  /* Hide any other navigation elements that might show on mobile */
+  .nav-group nav[role="navigation"] {
+    @apply hidden;
+  }
 }
 
 /* Ensure proper centering of navigation */

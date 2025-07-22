@@ -66,7 +66,7 @@
 }
 
 .icon-wrapper {
-  @apply relative flex h-6 w-6 items-center justify-center justify-self-end lg:h-9 lg:w-9;
+  @apply relative flex h-8 w-8 items-center justify-center justify-self-end lg:h-9 lg:w-9;
 }
 
 .icon-block {

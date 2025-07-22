@@ -33,7 +33,43 @@ const NavItem: React.FC<MenuItemProps> = ({
   userRole,
 }) => {
   const location = useLocation();
-  const active = location.pathname.includes(item.link || "#");
+
+  // Enhanced active state logic
+  const getActiveState = () => {
+    // Use the item's isActive property if available
+    if (item.isActive !== undefined) {
+      return item.isActive;
+    }
+
+    // Special handling for referrals
+    if (item.label === "Referrals") {
+      return location.pathname.includes("/referral");
+    }
+
+    // Special handling for dashboard
+    if (item.label === "Dashboard") {
+      return location.pathname.includes("/dashboard");
+    }
+
+    // Special handling for questionnaires
+    if (item.label === "Questionnaires") {
+      return (
+        location.pathname.includes("/questionnaires") ||
+        location.pathname.includes("/form-approvals") ||
+        location.pathname.includes("/responses") ||
+        location.pathname.includes("/scheduled-forms")
+      );
+    }
+
+    // Default: check if current path includes the item link
+    const itemUrl = getAppUrl(item.appUrl, item.link);
+    return (
+      location.pathname.includes(item.link || "#") ||
+      location.pathname === itemUrl
+    );
+  };
+
+  const active = getActiveState();
   const itemRef = useRef<HTMLLIElement>(null);
 
   // Generate unique ID for each nav item
@@ -114,7 +150,6 @@ const NavItem: React.FC<MenuItemProps> = ({
         tabIndex={0}
         aria-label={getAriaLabel()}
         aria-describedby={`${linkId}-desc`}
-        role="menuitem"
       >
         {item.icon ? (
           <div className="nav-icon" aria-hidden="true">

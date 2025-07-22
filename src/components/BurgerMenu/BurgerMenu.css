@@ -43,14 +43,14 @@
 .list-group .list-group .list-group-item a,
 .list-group-item a,
 .list-group-item p {
-  @apply text-neutral no-underline;
+  @apply text-baseColor no-underline;
 }
 /* .list-group .list-group .list-group-item p {
     @apply !font-normal;
   } */
 
 .add-icon span {
-  @apply w-7 text-7xl font-normal text-neutral;
+  @apply w-7 text-7xl font-normal text-baseColor;
 }
 
 .item-separator {

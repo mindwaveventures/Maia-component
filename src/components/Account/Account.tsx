@@ -3,7 +3,7 @@ import { Tooltip } from "../Tooltip/Tooltip";
 import Button from "../Button/Button";
 import IconComponent from "../Icons/Icons";
 import { IUserInfo, MenuItemProps } from "../../types";
-import { Link } from "react-router-dom";
+import { Link, useLocation } from "react-router-dom";
 
 import "./Account.css";
 import useKeyboard from "../../utils/useKeyboard";
@@ -32,16 +32,20 @@ export const Account: React.FC<AccountProps> = ({
   ResourcesPortal = "",
   OuterDomain = "",
 }) => {
+  const location = useLocation();
   const toggleBentoMenu = () => {
+    console.log(`🔄 Toggling menu: current state ${openTab} -> ${!openTab}`);
     changeAction(!openTab);
   };
 
   const accountRef = useRef<HTMLDivElement>(null);
   const menuRef = useRef<HTMLDivElement>(null);
   const [focusedMenuItemIndex, setFocusedMenuItemIndex] = useState(-1);
+  const prevLocationRef = useRef(location.pathname);
 
   // Use the custom hook
   useOutsideClick(accountRef, () => {
+    console.log(`👆 Outside click detected, menu open: ${openTab}`);
     if (openTab) changeAction(false);
   });
 
@@ -55,7 +59,7 @@ export const Account: React.FC<AccountProps> = ({
       );
       return `${proxyUser?.proxyUserInfo?.firstName} ${proxyUser?.proxyUserInfo?.lastName}`;
     }
-    return localStorage.getItem("name") || userInfo.firstName || "User";
+    return localStorage.getItem("name") || userInfo?.firstName || "User";
   };
 
   const getAppUrl = (appUrl: string, link: string) => {
@@ -115,6 +119,19 @@ export const Account: React.FC<AccountProps> = ({
     }
   }, [openTab]);
 
+  // Close menu when location changes (navigation happens)
+  useEffect(() => {
+    console.log(
+      `📍 Location changed: ${location.pathname}, prev: ${prevLocationRef.current}, menu open: ${openTab}`
+    );
+    if (openTab && location.pathname !== prevLocationRef.current) {
+      // Only close if the location actually changed
+      console.log(`🚪 Closing menu due to location change`);
+      changeAction(false);
+    }
+    prevLocationRef.current = location.pathname;
+  }, [location.pathname, openTab]);
+
   const MenuItem = ({
     item,
     index,
@@ -125,20 +142,26 @@ export const Account: React.FC<AccountProps> = ({
     const isFocused = focusedMenuItemIndex === index;
 
     return (
-      <li
-        role="menuitem"
-        aria-label={item.label}
-        tabIndex={isFocused ? 0 : -1}
-        onFocus={() => setFocusedMenuItemIndex(index)}
-        onBlur={() => setFocusedMenuItemIndex(-1)}
-      >
+      <li role="none">
         <Link
+          role="menuitem"
+          aria-label={item.label}
+          tabIndex={0} // all items focusable
           to={getAppUrl(item.appUrl || "", item.to)}
-          onClick={item.action ? item.action : toggleBentoMenu}
+          onClick={(e) => {
+            console.log(`🔗 Link clicked: ${item.label}`);
+
+            if (item.action) {
+              e.preventDefault(); // Only prevent if custom action
+              item.action();
+            }
+
+            toggleBentoMenu();
+          }}
           className="dropdown-item"
           style={{ cursor: "pointer" }}
         >
-          <p>{item.label}</p>
+          {item.label}
         </Link>
       </li>
     );

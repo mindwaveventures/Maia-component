@@ -1,6 +1,6 @@
 {
-  "name": "@mindwaveventures/mediwave-components",
-  "version": "1.0.33",
+  "name": "asone-components",
+  "version": "1.0.52",
   "description": "In this npm package, you will find a comprehensive collection of React UI components.",
   "main": "./dist/index.js",
   "module": "./dist/index.mjs",
@@ -25,6 +25,7 @@
     "typescript": "^5.4.5"
   },
   "dependencies": {
+    "asone-components": "^1.0.42",
     "autoprefixer": "^10.4.19"
   }
 }

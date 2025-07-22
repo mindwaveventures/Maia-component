@@ -138,6 +138,16 @@ export const PrimaryNav: React.FC<PrimaryNavProps> = ({
       return isQuestionnaireActive();
     }
 
+    // Referrals special case - use path includes for nested routes
+    if (item.label === "Referrals") {
+      const itemUrl = getAppUrl(item.appUrl, item.link);
+      return (
+        itemUrl === location.pathname ||
+        itemUrl === location.pathname + location.search ||
+        location.pathname.includes("/referral")
+      );
+    }
+
     // Default case - exact path match
     const itemUrl = getAppUrl(item.appUrl, item.link);
     return (

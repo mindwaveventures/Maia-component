@@ -1,4 +1,4 @@
-import React, { useEffect, useRef } from 'react';
+import React, { useEffect, useRef } from "react";
 
 interface LazyBackgroundImageProps {
   imageUrl?: string;
@@ -16,7 +16,7 @@ const LazyBackgroundImage: React.FC<LazyBackgroundImageProps> = ({
   useEffect(() => {
     const options = {
       root: null,
-      rootMargin: '0px',
+      rootMargin: "0px",
       threshold: 0.5,
     };
 
@@ -49,15 +49,15 @@ const LazyBackgroundImage: React.FC<LazyBackgroundImageProps> = ({
   return (
     <div
       ref={imageRef}
-      className="bg-cover bg-center"
+      className="bg-center bg-cover"
       style={{
-        backgroundImage: 'none', // Initially set to none, will be updated when in view
+        backgroundImage: "none", // Initially set to none, will be updated when in view
       }}
     >
       <div className="hidden">
         <img
           src={imageUrl}
-          alt={altText}
+          alt={altText || "Background image with healthcare design pattern"}
           loading="lazy" // Enable native lazy loading for the img tag
         />
       </div>

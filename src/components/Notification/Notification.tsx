@@ -49,7 +49,7 @@ export const NavNotification: React.FC<NotificationProps> = ({
               aria-label="Close Notification"
               aria-expanded="true"
               onClick={toggleBentoMenu}
-              addClass="icon-wrapper acc-icon aaa"
+              addClass="icon-wrapper acc-icon"
               data-tooltip="Notification"
             >
               {totalNotifications > 0 && <div className="notify-dot" />}
@@ -70,7 +70,7 @@ export const NavNotification: React.FC<NotificationProps> = ({
               aria-expanded="false"
               aria-haspopup="true"
               onClick={toggleBentoMenu}
-              addClass="icon-wrapper acc-icon aaaa"
+              addClass="icon-wrapper acc-icon"
               data-tooltip="Notification"
             >
               {totalNotifications > 0 && <div className="notify-dot" />}
