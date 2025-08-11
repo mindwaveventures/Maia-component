@@ -143,8 +143,7 @@ const NavItem: React.FC<MenuItemProps> = ({
         id={linkId}
         to={getAppUrl(item.appUrl, item.link)}
         className={`bottom-nav-link focus:outline-none focus:ring-2 focus:ring-primary focus:ring-offset-2 focus:ring-offset-neutral ${
-          active ? "active" : ""
-        }`}
+          active ? "active" : ""}`}
         onClick={() => item.action?.()}
         onKeyDown={handleKeyDown}
         tabIndex={0}
