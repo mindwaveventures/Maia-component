@@ -58,6 +58,7 @@ export interface IGlobelSettings {
     myHealth?: {
       appointment?: boolean;
       questionnaires?: boolean;
+      aboutme?:boolean;
     };
   };
 }
