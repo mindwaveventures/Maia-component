@@ -280,7 +280,7 @@ export const BottomNav: React.FC<BottomNavProps> = ({
       if (globalSettings.modules?.card_myHealth) {
         items.push({
           label: "My health",
-          link: "/my-health/overview",
+          link: globalSettings.modules.myHealth?.aboutme? "/my-health/aboutme" : "/my-health/appointment",
           icon: <IconComponent name="Dashboard" />,
           isActive: location.pathname.includes("/my-health"),
           isHide: false,
